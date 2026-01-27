@@ -1,0 +1,6 @@
+@SingletonDIExm_HostAddress = http://localhost:5259
+
+GET {{SingletonDIExm_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

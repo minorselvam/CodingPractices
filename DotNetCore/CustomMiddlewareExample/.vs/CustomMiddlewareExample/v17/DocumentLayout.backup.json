@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\custommiddleware\\middleware1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\custommiddleware\\middleware1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\custommiddleware\\middleware2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\custommiddleware\\middleware2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\custommiddleware\\middleware3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\custommiddleware\\middleware3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\explanationclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\explanationclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\addrequiredheadersoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\addrequiredheadersoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|d:\\codingpractices\\dotnetcore\\custommiddlewareexample\\custommiddlewareexample\\custommiddleware\\custommiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573ED8F5-2F24-4628-BAE7-83E346B50458}|CustomMiddlewareExample\\CustomMiddlewareExample.csproj|solutionrelative:custommiddlewareexample\\custommiddleware\\custommiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ExplanationClass.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\ExplanationClass.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\ExplanationClass.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\ExplanationClass.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\ExplanationClass.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAC0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T08:27:49.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddRequiredHeadersOperationFilter.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\AddRequiredHeadersOperationFilter.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\AddRequiredHeadersOperationFilter.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\AddRequiredHeadersOperationFilter.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\AddRequiredHeadersOperationFilter.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwAUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T08:03:01.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Middleware3.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\Middleware3.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\CustomMiddleware\\Middleware3.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\Middleware3.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\CustomMiddleware\\Middleware3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:51:38.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Middleware2.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\Middleware2.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\CustomMiddleware\\Middleware2.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\Middleware2.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\CustomMiddleware\\Middleware2.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAAD0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:24:29.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Middleware1.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\Middleware1.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\CustomMiddleware\\Middleware1.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\Middleware1.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\CustomMiddleware\\Middleware1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:21:54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CustomMiddleware.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\CustomMiddleware.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\CustomMiddleware\\CustomMiddleware.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\CustomMiddleware\\CustomMiddleware.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\CustomMiddleware\\CustomMiddleware.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T14:44:44.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\Program.cs",
+              "RelativeDocumentMoniker": "CustomMiddlewareExample\\Program.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\CustomMiddlewareExample\\CustomMiddlewareExample\\Program.cs",
+              "RelativeToolTip": "CustomMiddlewareExample\\Program.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAQwCQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T14:44:04.058Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

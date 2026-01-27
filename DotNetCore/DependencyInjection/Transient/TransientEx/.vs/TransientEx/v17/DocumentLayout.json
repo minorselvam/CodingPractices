@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|d:\\codingpractices\\dotnetcore\\dependencyinjection\\transient\\transientex\\transientex\\controllers\\transientdemocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|solutionrelative:transientex\\controllers\\transientdemocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|d:\\codingpractices\\dotnetcore\\dependencyinjection\\transient\\transientex\\transientex\\transientrequesttracker\\transientrequesttracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|solutionrelative:transientex\\transientrequesttracker\\transientrequesttracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|d:\\codingpractices\\dotnetcore\\dependencyinjection\\transient\\transientex\\transientex\\transientrequesttracker\\itransientrequesttracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|solutionrelative:transientex\\transientrequesttracker\\itransientrequesttracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|d:\\codingpractices\\dotnetcore\\dependencyinjection\\transient\\transientex\\transientex\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F574BD0E-C364-4623-B455-A10165988187}|TransientEx\\TransientEx.csproj|solutionrelative:transientex\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\Program.cs",
+              "RelativeDocumentMoniker": "TransientEx\\Program.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\Program.cs",
+              "RelativeToolTip": "TransientEx\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T06:58:50.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TransientDemoController.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\Controllers\\TransientDemoController.cs",
+              "RelativeDocumentMoniker": "TransientEx\\Controllers\\TransientDemoController.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\Controllers\\TransientDemoController.cs",
+              "RelativeToolTip": "TransientEx\\Controllers\\TransientDemoController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T06:53:20.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TransientRequestTracker.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\TransientRequestTracker\\TransientRequestTracker.cs",
+              "RelativeDocumentMoniker": "TransientEx\\TransientRequestTracker\\TransientRequestTracker.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\TransientRequestTracker\\TransientRequestTracker.cs",
+              "RelativeToolTip": "TransientEx\\TransientRequestTracker\\TransientRequestTracker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T06:51:47.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ITransientRequestTracker.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\TransientRequestTracker\\ITransientRequestTracker.cs",
+              "RelativeDocumentMoniker": "TransientEx\\TransientRequestTracker\\ITransientRequestTracker.cs",
+              "ToolTip": "D:\\CodingPractices\\DotNetCore\\DependencyInjection\\Transient\\TransientEx\\TransientEx\\TransientRequestTracker\\ITransientRequestTracker.cs",
+              "RelativeToolTip": "TransientEx\\TransientRequestTracker\\ITransientRequestTracker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T06:51:39.115Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
