@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|d:\\codingpractices\\csharpcode\\abstractclassex\\abstractclassex\\motorbike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|solutionrelative:abstractclassex\\motorbike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|d:\\codingpractices\\csharpcode\\abstractclassex\\abstractclassex\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|solutionrelative:abstractclassex\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|d:\\codingpractices\\csharpcode\\abstractclassex\\abstractclassex\\mountainbike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|solutionrelative:abstractclassex\\mountainbike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|d:\\codingpractices\\csharpcode\\abstractclassex\\abstractclassex\\sprtsbike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B9D20AB-58B5-49EE-AAD5-FCA2CBBEEBAB}|AbstractClassEx\\AbstractClassEx.csproj|solutionrelative:abstractclassex\\sprtsbike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MountainBike.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\MountainBike.cs",
+              "RelativeDocumentMoniker": "AbstractClassEx\\MountainBike.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\MountainBike.cs",
+              "RelativeToolTip": "AbstractClassEx\\MountainBike.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T09:58:30.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SprtsBike.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\SprtsBike.cs",
+              "RelativeDocumentMoniker": "AbstractClassEx\\SprtsBike.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\SprtsBike.cs",
+              "RelativeToolTip": "AbstractClassEx\\SprtsBike.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T09:56:29.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MotorBike.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\MotorBike.cs",
+              "RelativeDocumentMoniker": "AbstractClassEx\\MotorBike.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\MotorBike.cs",
+              "RelativeToolTip": "AbstractClassEx\\MotorBike.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T09:54:31.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\Program.cs",
+              "RelativeDocumentMoniker": "AbstractClassEx\\Program.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\AbstractClassEx\\AbstractClassEx\\Program.cs",
+              "RelativeToolTip": "AbstractClassEx\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T09:53:41.773Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
