@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|d:\\codingpractices\\csharpcode\\csharpdesignpatterns\\facadedesignpattern\\facadedesignpattern\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|solutionrelative:facadedesignpattern\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|d:\\codingpractices\\csharpcode\\csharpdesignpatterns\\facadedesignpattern\\facadedesignpattern\\subsystemclasses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|solutionrelative:facadedesignpattern\\subsystemclasses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|d:\\codingpractices\\csharpcode\\csharpdesignpatterns\\facadedesignpattern\\facadedesignpattern\\ilogisticsfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|solutionrelative:facadedesignpattern\\ilogisticsfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|d:\\codingpractices\\csharpcode\\csharpdesignpatterns\\facadedesignpattern\\facadedesignpattern\\logisticsfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D084593-AFBA-408F-845E-01B3663AE0F1}|FacadeDesignPattern\\FacadeDesignPattern.csproj|solutionrelative:facadedesignpattern\\logisticsfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ILogisticsFacade.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\ILogisticsFacade.cs",
+              "RelativeDocumentMoniker": "FacadeDesignPattern\\ILogisticsFacade.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\ILogisticsFacade.cs",
+              "RelativeToolTip": "FacadeDesignPattern\\ILogisticsFacade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T15:36:27.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LogisticsFacade.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\LogisticsFacade.cs",
+              "RelativeDocumentMoniker": "FacadeDesignPattern\\LogisticsFacade.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\LogisticsFacade.cs",
+              "RelativeToolTip": "FacadeDesignPattern\\LogisticsFacade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T15:35:58.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubSystemClasses.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\SubSystemClasses.cs",
+              "RelativeDocumentMoniker": "FacadeDesignPattern\\SubSystemClasses.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\SubSystemClasses.cs",
+              "RelativeToolTip": "FacadeDesignPattern\\SubSystemClasses.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T15:35:08.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\Program.cs",
+              "RelativeDocumentMoniker": "FacadeDesignPattern\\Program.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpDesignPatterns\\FacadeDesignPattern\\FacadeDesignPattern\\Program.cs",
+              "RelativeToolTip": "FacadeDesignPattern\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T15:34:15.701Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
