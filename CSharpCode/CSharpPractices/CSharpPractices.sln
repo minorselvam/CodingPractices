@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpPractices", "CSharpPractices\CSharpPractices.csproj", "{C336188E-BE70-471C-82F1-E0B1619D08A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindDuplicateWord", "FindDuplicateWord\FindDuplicateWord.csproj", "{AEADBA2D-7613-4680-AB08-A900B9FF18AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C336188E-BE70-471C-82F1-E0B1619D08A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C336188E-BE70-471C-82F1-E0B1619D08A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C336188E-BE70-471C-82F1-E0B1619D08A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C336188E-BE70-471C-82F1-E0B1619D08A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEADBA2D-7613-4680-AB08-A900B9FF18AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEADBA2D-7613-4680-AB08-A900B9FF18AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEADBA2D-7613-4680-AB08-A900B9FF18AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEADBA2D-7613-4680-AB08-A900B9FF18AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A2371EB-E94D-46DD-A9BC-8639214E9206}
+	EndGlobalSection
+EndGlobal

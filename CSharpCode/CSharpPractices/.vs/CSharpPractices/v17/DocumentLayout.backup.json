@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|d:\\codingpractices\\csharpcode\\csharppractices\\csharppractices\\codingchallenges\\numberchallenges\\numberchallenges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|solutionrelative:csharppractices\\codingchallenges\\numberchallenges\\numberchallenges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|d:\\codingpractices\\csharpcode\\csharppractices\\csharppractices\\codingchallenges\\arraychallenges\\arraychallenges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|solutionrelative:csharppractices\\codingchallenges\\arraychallenges\\arraychallenges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|d:\\codingpractices\\csharpcode\\csharppractices\\csharppractices\\codingchallenges\\stringchallenges\\stringchallenges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|solutionrelative:csharppractices\\codingchallenges\\stringchallenges\\stringchallenges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|d:\\codingpractices\\csharpcode\\csharppractices\\csharppractices\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|solutionrelative:csharppractices\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|d:\\codingpractices\\csharpcode\\csharppractices\\csharppractices\\codingchallenges\\inmemorycrudwiththredsafe\\inmemorycrudwiththredsafesample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|solutionrelative:csharppractices\\codingchallenges\\inmemorycrudwiththredsafe\\inmemorycrudwiththredsafesample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|d:\\codingpractices\\csharpcode\\csharppractices\\csharppractices\\inheritanceexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C336188E-BE70-471C-82F1-E0B1619D08A7}|CSharpPractices\\CSharpPractices.csproj|solutionrelative:csharppractices\\inheritanceexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NumberChallenges.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\NumberChallenges\\NumberChallenges.cs",
+              "RelativeDocumentMoniker": "CSharpPractices\\CodingChallenges\\NumberChallenges\\NumberChallenges.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\NumberChallenges\\NumberChallenges.cs",
+              "RelativeToolTip": "CSharpPractices\\CodingChallenges\\NumberChallenges\\NumberChallenges.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T07:57:03.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArrayChallenges.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\ArrayChallenges\\ArrayChallenges.cs",
+              "RelativeDocumentMoniker": "CSharpPractices\\CodingChallenges\\ArrayChallenges\\ArrayChallenges.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\ArrayChallenges\\ArrayChallenges.cs",
+              "RelativeToolTip": "CSharpPractices\\CodingChallenges\\ArrayChallenges\\ArrayChallenges.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAA5wA4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T07:56:15.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StringChallenges.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\StringChallenges\\StringChallenges.cs",
+              "RelativeDocumentMoniker": "CSharpPractices\\CodingChallenges\\StringChallenges\\StringChallenges.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\StringChallenges\\StringChallenges.cs",
+              "RelativeToolTip": "CSharpPractices\\CodingChallenges\\StringChallenges\\StringChallenges.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAADgv7EAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T07:52:51.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InMemoryCRUDWithThredSafeSample.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\InMemoryCRUDWithThredSafe\\InMemoryCRUDWithThredSafeSample.cs",
+              "RelativeDocumentMoniker": "CSharpPractices\\CodingChallenges\\InMemoryCRUDWithThredSafe\\InMemoryCRUDWithThredSafeSample.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\CodingChallenges\\InMemoryCRUDWithThredSafe\\InMemoryCRUDWithThredSafeSample.cs",
+              "RelativeToolTip": "CSharpPractices\\CodingChallenges\\InMemoryCRUDWithThredSafe\\InMemoryCRUDWithThredSafeSample.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T07:51:30.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InheritanceExample.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\InheritanceExample.cs",
+              "RelativeDocumentMoniker": "CSharpPractices\\InheritanceExample.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\InheritanceExample.cs",
+              "RelativeToolTip": "CSharpPractices\\InheritanceExample.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAmwCMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T09:54:05.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\Program.cs",
+              "RelativeDocumentMoniker": "CSharpPractices\\Program.cs",
+              "ToolTip": "D:\\CodingPractices\\CSharpCode\\CSharpPractices\\CSharpPractices\\Program.cs",
+              "RelativeToolTip": "CSharpPractices\\Program.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAmwEYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T05:37:41.033Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
