@@ -23,10 +23,11 @@ namespace DotNetCoreWebApi
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
+            app.MapGet("/", () => "Hello from my-dotnet-api!");
 
             app.MapControllers();
 
