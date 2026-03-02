@@ -1,0 +1,16 @@
+Back end app - .Net core web api
+Front end app - React app
+Cloud provider - aws
+Database - AWS RDS (Relational Database Service)
+Domain - retail
+
+Need to learn 
+ECS (Elastice Container Service)
+EKS (Elastice Kubernetes Service)
+S3 (Simple Storage Service)
+ALBs (Application load balancers)
+Lambda
+API Gateway
+AWS RDS (Relational Database Service)
+
+Give the step by step instructions. For study purpose which plan I can select in AWS?
