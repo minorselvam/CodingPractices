@@ -1,8 +1,3 @@
-# -------------------------------
-# GitHub Actions Workflow: CI/CD Pipeline
-# Purpose: Build a Docker image for DotNetCoreWebApi and push it to AWS ECR Public
-# -------------------------------
-
 name: CI/CD Pipeline
 
 on:
@@ -19,28 +14,25 @@ jobs:
     steps:
     # Step 1: Checkout code
     - name: Checkout code
-      uses: actions/checkout@v3   # Pulls your repo code into the runner
+      uses: actions/checkout@v3
 
     # Step 2: Configure AWS credentials
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}       # Stored securely in GitHub Secrets
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Stored securely in GitHub Secrets
-        aws-region: ${{ secrets.AWS_REGION }}                     # Example: us-east-1
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
 
     # Step 3: Login to Amazon ECR Public
     - name: Login to Amazon ECR Public
       run: |
         aws ecr-public get-login-password --region us-east-1 \
           | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
-      # Retrieves a temporary login token from AWS and logs Docker into ECR Public
 
     # Step 4: Build Docker image
     - name: Build Docker image
-      run: docker build -t my-dotnet-api-repo \
-        -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile \
-        DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
+      run: docker build -t my-dotnet-api-repo -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
       # -f specifies the exact Dockerfile location
       # The last argument is the build context (folder sent to Docker build)
 
