@@ -1,0 +1,1 @@
+This is to check the ci/cd pipeline github actions workflow. (build docker image, push it into the AWS ECR)
