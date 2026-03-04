@@ -3,6 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'DotNetCore/DotNetCoreWebApi/**'   # 👈 only trigger when files here change
   workflow_dispatch:   # 👈 allows manual trigger from Actions tab
 
 jobs:
@@ -26,7 +28,7 @@ jobs:
           | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
 
     - name: Build Docker image
-      run: docker build -t my-dotnet-api-repo .
+      run: docker build -t my-dotnet-api-repo ./DotNetCore/DotNetCoreWebApi
 
     - name: Tag Docker image
       run: docker tag my-dotnet-api-repo:latest public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
