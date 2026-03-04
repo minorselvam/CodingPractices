@@ -1,0 +1,28 @@
+Back end app - .Net core web api
+Front end app - React app
+Cloud provider - aws 
+Domain - retail
+All the deployment, data storage needs to be used only the aws services.
+
+
+Need to learn 
+ECS (Elastice Container Service)
+EKS (Elastice Kubernetes Service)
+S3 (Simple Storage Service)
+ALBs (Application load balancers)
+Lambda
+API Gateway
+AWS RDS (Relational Database Service)
+
+Give the step by step instructions. For study purpose which plan I can select in AWS?
+===================================================================================================================================================
+
+Repo name - my-dotnet-api-repo
+Repo URL - public.ecr.aws/y1i1b5g3/my-dotnet-api-repo
+
+ARN Name for user - arn:aws:iam::491799435544:user/aws-cli-user
+Policy Permission he has AmazonElasticContainerRegistryPublicFullAccess
+
+Code Repo - gitHub
+
+Now how to setup the CI/CD pipeline with this setups?
