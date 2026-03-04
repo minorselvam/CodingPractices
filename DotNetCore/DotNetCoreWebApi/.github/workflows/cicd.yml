@@ -3,6 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:   # 👈 allows manual trigger from Actions tab
 
 jobs:
   build-and-push:
@@ -30,5 +31,5 @@ jobs:
     - name: Tag Docker image
       run: docker tag my-dotnet-api-repo:latest public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
 
-    #- name: Push Docker image to ECR Public
-    #  run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+    - name: Push Docker image to ECR Public
+      run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
