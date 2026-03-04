@@ -1,0 +1,34 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Login to Amazon ECR Public
+      run: |
+        aws ecr-public get-login-password --region us-east-1 \
+          | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
+
+    - name: Build Docker image
+      run: docker build -t my-dotnet-api-repo .
+
+    - name: Tag Docker image
+      run: docker tag my-dotnet-api-repo:latest public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+
+    #- name: Push Docker image to ECR Public
+    #  run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
