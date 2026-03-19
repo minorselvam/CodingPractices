@@ -3,7 +3,7 @@ Front end app - React app
 Cloud provider - aws 
 Domain - retail
 All the deployment, data storage needs to be used only the aws services.
-
+=============================================================================================================================
 
 Need to learn 
 ECS (Elastice Container Service)
@@ -15,7 +15,7 @@ API Gateway
 AWS RDS (Relational Database Service)
 
 Give the step by step instructions. For study purpose which plan I can select in AWS?
-===================================================================================================================================================
+=============================================================================================================================
 
 Repo name - my-dotnet-api-repo
 Repo URL - public.ecr.aws/y1i1b5g3/my-dotnet-api-repo
@@ -26,3 +26,21 @@ Policy Permission he has AmazonElasticContainerRegistryPublicFullAccess
 Code Repo - gitHub
 
 Now how to setup the CI/CD pipeline with this setups?
+=============================================================================================================================
+
+IAM User  - aws-cli-user
+
+Region now - ap-south-2 (Asia Pacific - Hyderabad)
+
+Created Elastic Container Registry (ECR) Repo - my-dotnet-api-repo
+
+Created Elastic Kubernete Service (EKS) cluster IAM role - eksClusterRole-ap-south-2
+
+Created Elastic Kubernete Service (EKS) node IAM role  - eksNodeRole-ap-south-2
+---(IAM roles are global, but you’ll later use this role when creating node groups in ap-south-2.)
+
+Created Elastic Kubernete Service (EKS) Cluster - my-eks-cluster
+
+Created Elastic Kubernete Service (EKS) Node Group in ap-south-2 - my-node-group
+
+Node Groups - dotnet-api-nodes

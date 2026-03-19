@@ -1,6 +1,3 @@
-# GitHub Actions Workflow: CI/CD Pipeline
-# Purpose: Build a Docker image for DotNetCoreWebApi and push it to AWS ECR Public
-
 name: CI/CD Pipeline   # Workflow name shown in Actions tab
 
 on:
@@ -17,35 +14,30 @@ jobs:
     steps:
     # Step 1: Checkout code
     - name: Checkout code
-      uses: actions/checkout@v3   # Pulls repo code into runner
+      uses: actions/checkout@v3
 
     # Step 2: Configure AWS credentials
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}       # Secret: AWS Access Key
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Secret: AWS Secret Key
-        aws-region: ${{ secrets.AWS_REGION }}                     # Secret: AWS Region (e.g., us-east-1)
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
 
     # Step 3: Login to Amazon ECR Public
     - name: Login to Amazon ECR Public
       run: |
         aws ecr-public get-login-password --region us-east-1 \
           | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
-      # Retrieves a temporary login token from AWS and logs Docker into ECR Public
 
     # Step 4: Build Docker image
     - name: Build Docker image
       run: docker build -t my-dotnet-api-repo -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
-      # -f specifies the exact Dockerfile location
-      # The last argument is the build context (folder sent to Docker build)
 
     # Step 5: Tag Docker image
     - name: Tag Docker image
       run: docker tag my-dotnet-api-repo:latest public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
-      # Tags the local image with the ECR Public repository name and "latest" tag
 
     # Step 6: Push Docker image to ECR Public
     - name: Push Docker image to ECR Public
       run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
-      # Pushes the tagged image to AWS ECR Public
