@@ -9,8 +9,11 @@
             // Staff only interacts with abstract class reference
             PaymentProcessor payment;
 
-            payment = new CreditCardPayment(); payment.ProcessPayment(500.00); 
-            payment = new InsurancePayment(); payment.ProcessPayment(1200.00);
+            payment = new CreditCardPayment(); 
+            payment.ProcessPayment(500.00); 
+
+            payment = new InsurancePayment(); 
+            payment.ProcessPayment(1200.00);
         }
     }
 
