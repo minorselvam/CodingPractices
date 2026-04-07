@@ -1,4 +1,23 @@
 ﻿
+/*
+ What is Method Overriding?
+    Definition: Method overriding allows a derived class to provide a specific implementation of a method already defined in its base class.
+
+    Requirements:
+        Base class method must be marked as virtual.
+        Derived class method must use the override keyword.
+
+    Purpose: 
+        Enables runtime polymorphism (dynamic dispatch), where the method executed depends on the actual object type at runtime, 
+        not the reference type.
+
+    Benefits:
+        Extensibility: Add new employee roles without modifying existing code.
+        Maintainability: Avoid complex if-else or switch statements.
+        Code Reuse: Shared logic in base class, specialized logic in derived classes.
+        Flexibility: Systems can work with Employee references but execute role-specific behavior.
+*/
+
 namespace Overriding
 {
     internal class Program
@@ -68,3 +87,42 @@ namespace Overriding
         }
     }
 }
+
+
+/*
+ Q1: What happens if you don’t mark the base method as virtual?
+Answer:
+The derived class cannot override it using override. If you try, the compiler throws an error. You can still hide the base method using the new keyword, but that results in method hiding, not overriding, and does not support polymorphism.
+
+Q2: Difference between override and new keywords?
+Answer:
+
+override: Provides a new implementation of a virtual method. Supports runtime polymorphism.
+
+new: Hides the base class method. The method called depends on the reference type, not the runtime type.
+
+Q3: Can constructors be overridden in C#?
+Answer:
+No. Constructors are not inherited, so they cannot be overridden. However, derived classes can call base constructors using base(...).
+
+Q4: What is the role of the sealed keyword in overriding?
+Answer:
+If you mark an overridden method as sealed, it prevents further overriding in derived classes. Example:
+
+csharp
+public sealed override double CalculateBonus() { ... }
+Q5: How does polymorphism improve maintainability in large systems?
+Answer:
+Instead of modifying existing code when new roles are added, you simply extend the base class. This reduces risk of breaking existing logic and makes the system more modular.
+
+Q6: What is dynamic dispatch in C#?
+Answer:
+It’s the mechanism by which the CLR determines at runtime which implementation of a virtual method to call, based on the actual object type.
+
+Q7: Can you override a static method in C#?
+Answer:
+No. Static methods belong to the type itself, not to instances, so they cannot participate in polymorphism.
+
+✅ Key Takeaway
+Polymorphism in C# allows you to write flexible, extensible, and maintainable code. By overriding methods in derived classes, you ensure that the correct behavior is executed at runtime, based on the actual object type.
+*/
