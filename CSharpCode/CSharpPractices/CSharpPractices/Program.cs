@@ -178,37 +178,5 @@ class Program
         //int[] outputArray = MatrixTraversal.MatrixReverseEachRowFromRightToLeftFromBottomRow(matrix);
         //==============Matrix Traversal=======ends here==================
 
-
-        //----------------Inheritance Example=======starts here==================
-
-        //Call All Derived Methods with Same Name
-        ClassB objClassB = new ClassB();
-        objClassB.Method1FromClassA(); // Calls ClassB's Method1FromClassA (the "new" one)
-
-        // To call ClassA's Method1FromClassA, cast to ClassA first
-        ((ClassA)objClassB).Method1FromClassA();
-
-
-        ((IinterfaceA)objClassB).method1(); //This will call IinterfaceA.method1() and This called as interface casting
-        ((IinterfaceB)objClassB).method1(); //This will call IinterfaceB.method1() and This called as interface casting
-
-        //----------------Inheritance Example=======ends here==================
-
-
-        //----------------Dependency Injection Example=======starts here==================
-        //CreditCardPayment creditCardPayment = new CreditCardPayment();
-        //DebitCardPayment debitCardPayment = new DebitCardPayment();
-        //GooglePay googlePlay   = new GooglePay();
-
-        //PaymentManager paymentManager = new PaymentManager(creditCardPayment, debitCardPayment, googlePlay);
-        //paymentManager.ManagePayment();
-
-
-        //var paymentMode = PaymentModeFactory.Create(Mode.GooglePay);
-        //PaymentManager paymentManager = new PaymentManager(paymentMode);
-        //paymentManager.ManagePayment();
-        //Console.ReadKey();
-        //----------------Dependency Injection Example=======ends here==================
-
     }
 }
