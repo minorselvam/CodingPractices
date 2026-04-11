@@ -67,8 +67,8 @@ class Program
         //CCC
         //DDDD
 
-        string[] inputArr = new string[] { "A", "B", "C", "D" };
-        StringChallenges.PrintStringArrayInIncrementOrder(inputArr);
+        //string[] inputArr = new string[] { "A", "B", "C", "D" };
+        //StringChallenges.PrintStringArrayInIncrementOrder(inputArr);
 
         //==============String related coding challenges=======ends here==================
 
@@ -111,6 +111,21 @@ class Program
         //List<int> list1 = new List<int> { 1, 2, 3, 4, 5 };
         //List<int> list2 = new List<int> { 3, 4, 5, 6, 7 };
         //Console.WriteLine("Common elements between two lists is: " + ArrayChallenges.FindCommonElementsBetweenTwoLists(list1, list2));
+
+        //----------------Given an integer array, return the most frequent elements
+
+        // input = {1, 2, 3, 4, 3, 6, 5, 2, 1, 5, 6, 8, 9, 1, 6, 2, 6, 5, 5, 5, 5}
+        // Expected output = The element 5 appears 6 times
+        int[] inputArrVal = { 1, 2, 3, 4, 3, 6, 5, 2, 1, 5, 6, 8, 9, 1, 6, 2, 6, 5, 5, 5, 5 };
+
+        //Method-1 ==> Using Array
+        //string result = ArrayChallenges.FindMostFreqElementsInAnIntegerArrayUsingArray(inputArrVal);
+        //Console.WriteLine(result);
+
+        //Method-2 ==> Using Dictionary
+        string result1 = ArrayChallenges.FindMostFreqElementsInAnIntegerArrayUsingDictionary(inputArrVal);
+        Console.WriteLine(result1);
+
         //==============Array related coding challenges=======ends here==================
 
         //====================HackerRank coding challenges=======starts here==================
