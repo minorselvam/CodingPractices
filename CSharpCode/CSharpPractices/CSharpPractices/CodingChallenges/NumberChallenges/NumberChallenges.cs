@@ -96,5 +96,39 @@ namespace CSharpPractices.CodingChallenges.NumberChallenges
             }
             return result;
         }
+
+        /*
+         Input:
+            Coins: [500, 10, 2000, 100, 20, 50, 5, 1]  === This is static input
+            Sum: 3000 === This is dynamic input
+        */
+
+        /*
+            Output:
+                Minimum coins required: 3
+                2000 x 1
+                500 x 2"
+        */
+        public static void FindDenominations(int sumAmount, int[] coinsArr)
+        {
+            coinsArr = coinsArr.OrderByDescending(x => x).ToArray();
+            int iCtr = 0;
+            int dividedResult = 0;
+            string minimumText = "Minimum coins required: " + Environment.NewLine;
+
+            foreach (int coin in coinsArr)
+            {
+                if (sumAmount >= coin)
+                {
+                    dividedResult = sumAmount / coin;
+                    minimumText = minimumText + coin + " X " + dividedResult + Environment.NewLine;
+                    sumAmount = sumAmount - (dividedResult * coin);
+                }
+
+                iCtr = iCtr + 1;
+            }
+            Console.WriteLine(minimumText);
+
+        }
     }
 }

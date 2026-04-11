@@ -87,6 +87,26 @@ class Program
         //Not completed
         //string result = NumberChallenges.DisplaySumOfNumbersInTriangleAssemble(4);
         //Console.WriteLine(result);
+
+
+        //----------------Find Denominations
+        /*
+         You are given an infinite number of coins of different denominations.
+        Your task is to determine the minimum number of coins required to make up a given total amount.
+        You must also display how many coins of each denomination are used to make up that amount.
+
+        Input:
+        Coins: [500, 10, 2000, 100, 20, 50, 5, 1]
+        Sum: 3000
+
+        Output:
+        Minimum coins required: 3
+        2000 x 1
+        500 x 2"
+        */
+        int[] coinsArr = { 500, 10, 2000, 100, 20, 50, 5, 1 };
+        int sumAmount = 3527;
+        NumberChallenges.FindDenominations(sumAmount, coinsArr);
         //==============Number related coding challenges=======ends here==================
 
 

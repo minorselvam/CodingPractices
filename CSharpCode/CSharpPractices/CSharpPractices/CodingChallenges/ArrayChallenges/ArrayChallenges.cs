@@ -109,10 +109,10 @@ namespace CSharpPractices.CodingChallenges.ArrayChallenges
         public static string FindMostFreqElementsInAnIntegerArrayUsingDictionary(int[] inputArr)
         {
             string result = string.Empty;
-            var frequencyMap = new SortedDictionary<int, int>();
+            var frequencyMap = new Dictionary<int, int>();
             inputArr = inputArr.OrderBy(n => n).ToArray();
 
-            foreach(int num in inputArr)
+            foreach (int num in inputArr)
             {
                 if(frequencyMap.ContainsKey(num))
                 {
