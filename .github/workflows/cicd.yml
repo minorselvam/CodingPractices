@@ -1,43 +1,137 @@
 name: CI/CD Pipeline   # Workflow name shown in Actions tab
 
 on:
-  push:   # Trigger workflow on code pushes
+  push:                 # Trigger workflow on code pushes
     branches: [ "main" ]   # Only when pushing to main branch
     paths:
       - 'DotNetCore/DotNetCoreWebApi/**'   # Only when files inside this folder change
-  workflow_dispatch:        # Allows manual triggering from Actions tab
+  workflow_dispatch:     # Allows manual triggering from Actions tab
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest   # Use GitHub-hosted Ubuntu runner
 
     steps:
-    # Step 1: Checkout code
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: Checkout code (fetch repository content into runner)
+      - name: Step 1 - Checkout code
+        uses: actions/checkout@v3
 
-    # Step 2: Configure AWS credentials
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
+      # Step 2: Configure AWS credentials (authenticate runner with AWS account)
+      - name: Step 2 - Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-    # Step 3: Login to Amazon ECR Public
-    - name: Login to Amazon ECR Public
-      run: |
-        aws ecr-public get-login-password --region us-east-1 \
-          | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
+      # Step 3: Login to Amazon ECR Public (authorize Docker to push images)
+      - name: Step 3 - Login to Amazon ECR Public
+        run: |
+          aws ecr-public get-login-password --region us-east-1 \
+            | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
 
-    # Step 4: Build Docker image
-    - name: Build Docker image
-      run: docker build -t my-dotnet-api-repo -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
+      # Step 4: Build Docker image (create container image from Dockerfile)
+      - name: Step 4 - Build Docker image
+        run: docker build -t my-dotnet-api-repo \
+             -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile \
+             DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
 
-    # Step 5: Tag Docker image
-    - name: Tag Docker image
-      run: docker tag my-dotnet-api-repo:latest public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+      # Step 5: Tag Docker image (assign repository path to image)
+      - name: Step 5 - Tag Docker image
+        run: docker tag my-dotnet-api-repo:latest \
+             public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
 
-    # Step 6: Push Docker image to ECR Public
-    - name: Push Docker image to ECR Public
-      run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+      # Step 6: Push Docker image to ECR Public (upload image to AWS registry)
+      - name: Step 6 - Push Docker image to ECR Public
+        run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 7: Checkout code (fetch repository content again for deployment)
+      - name: Step 7 - Checkout code
+        uses: actions/checkout@v3
+
+      # Step 8: Configure AWS credentials with OIDC role (secure authentication via IAM role)
+      - name: Step 8 - Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-oidc-role
+          aws-region: ap-south-2
+
+      # Step 9: Update kubeconfig for EKS (connect kubectl to target cluster)
+      - name: Step 9 - Update kubeconfig
+        run: aws eks update-kubeconfig --region ap-south-2 --name my-eks-cluster-1
+
+      # Step 10: Deploy to EKS (update container image in Kubernetes deployment)
+      - name: Step 10 - Deploy to EKS
+        run: |
+          kubectl set image deployment/dotnet-api-deployment \
+            dotnet-api-container=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-south-2.amazonaws.com/my-dotnet-api-repo:latest
+          kubectl rollout status deployment/dotnet-api-deployment
+
+
+# ---------------------------------------------------------
+# Step Definitions
+# Step 1: Checkout code → Pulls repository files into the GitHub runner.
+# Step 2: Configure AWS credentials → Authenticates runner with AWS account using secrets.
+# Step 3: Login to Amazon ECR Public → Grants Docker permission to push images to AWS ECR Public.
+# Step 4: Build Docker image → Creates a container image from your .NET Core Web API Dockerfile.
+# Step 5: Tag Docker image → Assigns repository path and version tag to the image.
+# Step 6: Push Docker image to ECR Public → Uploads the image to AWS ECR Public registry.
+# Step 7: Checkout code (deploy job) → Fetches repository files again for deployment context.
+# Step 8: Configure AWS credentials with OIDC role → Uses IAM role for secure authentication.
+# Step 9: Update kubeconfig for EKS → Connects kubectl to your EKS cluster.
+# Step 10: Deploy to EKS → Updates Kubernetes deployment with the new Docker image and waits for rollout.
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# Pipeline Flow Diagram
+#
+#   ┌───────────────┐
+#   │   Checkout    │  (Step 1)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │ Configure AWS │  (Step 2)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Login ECR   │  (Step 3)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Build Img   │  (Step 4)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Tag Img     │  (Step 5)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Push Img    │  (Step 6)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Deploy Job  │
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Checkout    │  (Step 7)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │ Configure AWS │  (Step 8)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │ Update Config │  (Step 9)
+#   └──────┬────────┘
+#          │
+#   ┌──────▼────────┐
+#   │   Deploy EKS  │  (Step 10)
+#   └───────────────┘
+#
+# ---------------------------------------------------------
