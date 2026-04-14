@@ -1,76 +1,63 @@
 name: CI/CD Pipeline   # Workflow name shown in Actions tab
 
 on:
-  push:                 # Trigger workflow on code pushes
-    branches: [ "main" ]   # Only when pushing to main branch
+  push:
+    branches: [ "main" ]
     paths:
-      - 'DotNetCore/DotNetCoreWebApi/**'   # Only when files inside this folder change
-  workflow_dispatch:     # Allows manual triggering from Actions tab
+      - 'DotNetCore/DotNetCoreWebApi/**'
+  workflow_dispatch:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest   # Use GitHub-hosted Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code (fetch repository content into runner)
-      - name: Step 1 - Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      # Step 2: Configure AWS credentials (authenticate runner with AWS account)
-      - name: Step 2 - Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
 
-      # Step 3: Login to Amazon ECR Public (authorize Docker to push images)
-      - name: Step 3 - Login to Amazon ECR Public
-        run: |
-          aws ecr-public get-login-password --region us-east-1 \
-            | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
+    - name: Login to Amazon ECR Public
+      run: |
+        aws ecr-public get-login-password --region us-east-1 \
+          | docker login --username AWS --password-stdin public.ecr.aws/y1i1b5g3
 
-      # Step 4: Build Docker image (create container image from Dockerfile)
-      - name: Step 4 - Build Docker image
-        run: docker build -t my-dotnet-api-repo \
-             -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile \
-             DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
+    - name: Build Docker image
+      run: docker build -t my-dotnet-api-repo -f DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi/Dockerfile DotNetCore/DotNetCoreWebApi/DotNetCoreWebApi
 
-      # Step 5: Tag Docker image (assign repository path to image)
-      - name: Step 5 - Tag Docker image
-        run: docker tag my-dotnet-api-repo:latest \
-             public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+    - name: Tag Docker image
+      run: docker tag my-dotnet-api-repo:latest public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
 
-      # Step 6: Push Docker image to ECR Public (upload image to AWS registry)
-      - name: Step 6 - Push Docker image to ECR Public
-        run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+    - name: Push Docker image to ECR Public
+      run: docker push public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
 
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
 
     steps:
-      # Step 7: Checkout code (fetch repository content again for deployment)
-      - name: Step 7 - Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      # Step 8: Configure AWS credentials with OIDC role (secure authentication via IAM role)
-      - name: Step 8 - Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-oidc-role
-          aws-region: ap-south-2
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-oidc-role
+        aws-region: ap-south-2
 
-      # Step 9: Update kubeconfig for EKS (connect kubectl to target cluster)
-      - name: Step 9 - Update kubeconfig
-        run: aws eks update-kubeconfig --region ap-south-2 --name my-eks-cluster-1
+    - name: Update kubeconfig
+      run: aws eks update-kubeconfig --region ap-south-2 --name my-eks-cluster-1
 
-      # Step 10: Deploy to EKS (update container image in Kubernetes deployment)
-      - name: Step 10 - Deploy to EKS
-        run: |
-          kubectl set image deployment/dotnet-api-deployment \
-            dotnet-api-container=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-south-2.amazonaws.com/my-dotnet-api-repo:latest
-          kubectl rollout status deployment/dotnet-api-deployment
+    - name: Deploy to EKS
+      run: |
+        kubectl set image deployment/dotnet-api-deployment dotnet-api-container=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-south-2.amazonaws.com/my-dotnet-api-repo:latest
+        kubectl rollout status deployment/dotnet-api-deployment
+
 
 
 # ---------------------------------------------------------
