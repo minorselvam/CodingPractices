@@ -1,8 +1,2 @@
 This is to check the ci/cd pipeline github actions workflow. (build docker image, push it into the AWS ECR)
 Test 1
-Test 2
-Test 3
-Test 4
-Test 5
-Test 6
-Test 7
