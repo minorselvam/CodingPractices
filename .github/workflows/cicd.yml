@@ -57,7 +57,11 @@ jobs:
       run: aws sts get-caller-identity
 
     - name: Update kubeconfig
-      run: aws eks update-kubeconfig --region ap-south-2 --name my-eks-cluster-1
+      run: aws eks update-kubeconfig --region ap-south-2 --name my-eks-cluster-1      
+
+    - name: Debug kubeconfig
+      run: |
+        cat ~/.kube/config
 
     - name: Deploy to EKS
       run: |
