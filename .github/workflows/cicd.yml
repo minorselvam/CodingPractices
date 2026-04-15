@@ -7,10 +7,6 @@ on:
       - 'DotNetCore/DotNetCoreWebApi/**'
   workflow_dispatch:
 
-permissions:
-  id-token: write   # Required for OIDC
-  contents: read    # Allows checkout
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -19,11 +15,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Configure AWS credentials (OIDC)
+    - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::491799435544:role/eks-deploy-role
-        aws-region: ap-south-2
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Login to Amazon ECR Public
       run: |
@@ -47,10 +44,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Configure AWS credentials (OIDC)
+    - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::491799435544:role/eks-deploy-role
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-2
 
     - name: Update kubeconfig
@@ -58,9 +56,11 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-        kubectl set image deployment/dotnet-api-deployment dotnet-api-container=public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
+        kubectl set image deployment/dotnet-api-deployment dotnet-api-container=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-south-2.amazonaws.com/my-dotnet-api-repo:latest
         kubectl rollout status deployment/dotnet-api-deployment
-	
+
+
+
 # ---------------------------------------------------------
 # Step Definitions
 # Step 1: Checkout code → Pulls repository files into the GitHub runner.
