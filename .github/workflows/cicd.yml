@@ -53,6 +53,9 @@ jobs:
         role-to-assume: arn:aws:iam::491799435544:role/eks-deploy-role
         aws-region: ap-south-2
 
+    - name: Debug AWS identity
+      run: aws sts get-caller-identity
+
     - name: Update kubeconfig
       run: aws eks update-kubeconfig --region ap-south-2 --name my-eks-cluster-1
 
@@ -61,7 +64,9 @@ jobs:
         kubectl set image deployment/dotnet-api-deployment dotnet-api-container=public.ecr.aws/y1i1b5g3/my-dotnet-api-repo:latest
         kubectl rollout status deployment/dotnet-api-deployment
 
-
+    - name: Debug AWS identity (post-deploy)
+      run: aws sts get-caller-identity
+      
 # ---------------------------------------------------------
 # Step Definitions
 # Step 1: Checkout code → Pulls repository files into the GitHub runner.
