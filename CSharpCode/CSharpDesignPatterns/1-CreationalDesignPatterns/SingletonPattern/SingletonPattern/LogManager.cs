@@ -15,24 +15,24 @@
      */
 
     public sealed class Logger
-    {       
-        
-        //private static readonly Lazy<Logger> _instance = new Lazy<Logger>(() => new Logger());
-        
-        //// Global access point to the single instance with thread-safety by Lazy<T>
-        //public static Logger Instance => _instance.Value;
-        
-        
-        ////Private constructor ensures no external instantiation
-        //private Logger()
-        //{
-        //    // Simulate initialization, e.g., opening log file or setting up connection
-        //}
+    {
 
-        //public void Log(string message)
-        //{
-        //    // Log message to console or a file
-        //    Console.WriteLine($"Log Entry: {message}");
-        //}
+        private static readonly Lazy<Logger> _instance = new Lazy<Logger>(() => new Logger());
+
+        // Global access point to the single instance with thread-safety by Lazy<T>
+        public static Logger Instance => _instance.Value;
+
+
+        //Private constructor ensures no external instantiation
+        private Logger()
+        {
+            // Simulate initialization, e.g., opening log file or setting up connection
+        }
+
+        public void Log(string message)
+        {
+            // Log message to console or a file
+            Console.WriteLine($"Log Entry: {message}");
+        }
     }
 }

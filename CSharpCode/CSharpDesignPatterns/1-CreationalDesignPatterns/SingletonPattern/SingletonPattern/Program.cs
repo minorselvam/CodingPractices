@@ -10,7 +10,7 @@ namespace MyApp
         {
             Console.WriteLine("Hello World!");
 
-            /*
+          
             //Accessing the Singleton Instance
             SingletonExample S1 = SingletonExample.Instance;
             SingletonExample S2 = SingletonExample.Instance;
@@ -19,7 +19,7 @@ namespace MyApp
 
             // Both references point to the same instance
             Console.WriteLine("Is object.ReferenceEquals: " + object.ReferenceEquals(S1, S2)); // Output: True
-            */
+          
 
 
             //Logger Instance Checking
