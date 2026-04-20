@@ -9,7 +9,7 @@ namespace SingletonPattern
 {
     public class SingletonExample
     {
-        private static readonly SingletonExample instance = new SingletonExample(); //storing static reference to the single instance
+        private static SingletonExample instance = new SingletonExample(); //storing static reference to the single instance
 
         private SingletonExample() //Private constructor which will restrice the object creation of this class
         {
