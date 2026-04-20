@@ -8,7 +8,7 @@ namespace Overriding
 {
     public class Employee
     {
-        public Employee(string eMail) 
+        public Employee() 
         { 
             Console.WriteLine("Employee class constructor called");
         }

@@ -27,15 +27,15 @@ namespace Overriding
             //Console.WriteLine("Hello, World!");
 
             //Calling CalculateBonus from Employee class 
-            Employee emp = new Employee("test@yahoo.com");
+            Employee emp = new Employee();
             emp.CalculateBonus();
 
             // Calling CalculateBonus from SeniorEngineer class
-            SeniorEngineer empSenior = new SeniorEngineer("test@yahoo.com");
+            SeniorEngineer empSenior = new SeniorEngineer();
             empSenior.CalculateBonus();
 
             // Polymorphism: base class reference to derived class object
-            Employee emp1 = new SeniorEngineer("test@yahoo.com");
+            Employee emp1 = new SeniorEngineer();
             emp1.CalculateBonus(); // Which method is called?... Calls overridden version in SeniorEngineer
 
             /*
@@ -82,7 +82,7 @@ namespace Overriding
 
 
             //Calling new employee type CalculateBonus
-            Employee emp2 = new Consultant("test1@msn.com");
+            Employee emp2 = new Consultant();
             emp2.CalculateBonus(); //This will call the Consultant class CalculateBonus method.
         }
     }

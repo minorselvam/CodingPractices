@@ -28,7 +28,7 @@ namespace Overriding
 {
     public class SeniorEngineer : Employee
     {
-        public SeniorEngineer(string eMail) : base(eMail)
+        public SeniorEngineer() : base()
         {
             Console.WriteLine("SeniorEngineer class constructor called");
         }

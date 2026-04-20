@@ -46,7 +46,7 @@ namespace Overriding
 {
     public class Consultant : Employee
     {
-        public Consultant(string eMail) :base(eMail)
+        public Consultant() :base()
         {
             Console.WriteLine("Consultant class constructor called");
         }
