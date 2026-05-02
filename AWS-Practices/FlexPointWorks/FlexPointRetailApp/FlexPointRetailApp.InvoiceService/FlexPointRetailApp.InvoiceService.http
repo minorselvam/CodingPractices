@@ -1,0 +1,6 @@
+@FlexPointRetailApp.InvoiceService_HostAddress = http://localhost:5031
+
+GET {{FlexPointRetailApp.InvoiceService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
