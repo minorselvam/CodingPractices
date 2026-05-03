@@ -1,4 +1,5 @@
-﻿using FlexPointRetailApp.OrderService.Interfaces;
+﻿using FlexPointRetailApp.OrderService.Exceptions;
+using FlexPointRetailApp.OrderService.Interfaces;
 using FlexPointRetailApp.OrderService.Models;
 
 namespace FlexPointRetailApp.OrderService.Services
@@ -28,6 +29,11 @@ namespace FlexPointRetailApp.OrderService.Services
         public async Task<Order?> GetOrderByIdAsync(int orderId)
         {
             var order = await _orderRepository.GetOrderAsyncById(orderId);
+            if(order == null)
+            {
+                // Throw custom exception instead of generic one
+                throw new OrderNotFoundException(orderId, $"Order {orderId} not found.");
+            }
             return order;
         }
     }
