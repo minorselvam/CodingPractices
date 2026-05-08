@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36203.30
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithAsyncAndWithAwaitInSequentialOrder", "WithAsyncAndWithAwait\WithAsyncAndWithAwaitInSequentialOrder.csproj", "{9B92CA3D-56CF-4163-95FE-CA7D7038C50A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithoutAsyncAndWithoutAwait", "WithoutAsyncAndWithoutAwait\WithoutAsyncAndWithoutAwait.csproj", "{E4FE024A-FDEA-4F58-9464-20A9CF689ED3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallAsyncMethodsWithoutAwait", "WithoutAsyncAndWithoutAwait\CallAsyncMethodsWithoutAwait.csproj", "{E4FE024A-FDEA-4F58-9464-20A9CF689ED3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithAsyncAndWithAwaitWithParallel", "WithAsyncAndWithAwaitWithParallel\WithAsyncAndWithAwaitWithParallel.csproj", "{C4006D80-7DFA-4BBD-B39B-B4E0FAB1B054}"
 EndProject
