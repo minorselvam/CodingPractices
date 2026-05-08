@@ -8,23 +8,31 @@ namespace WithAsyncAndWithAwait
 {
     internal class WithAsyncAndWithAwaitHelper
     {
-        //With Async and Await
         public async Task<string> MethodAPI()
         {
-            await Task.Delay(5000);
+            // Thread ID before await
+            Console.WriteLine($"MethodAPI started on Thread {Environment.CurrentManagedThreadId}");
+            await Task.Delay(5000); // 🔑 Simulates I/O-bound operation
+            // 🔑 Thread IDs before and after await → may differ, showing thread release and continuation
+            Console.WriteLine($"MethodAPI resumed after await on Thread {Environment.CurrentManagedThreadId}");
             return "MethodAPI Result";
         }
 
         public async Task<string> MethodDB()
         {
-            await Task.Delay(6000); // Simulate delay
+            Console.WriteLine($"MethodDB started on Thread {Environment.CurrentManagedThreadId}");
+            await Task.Delay(6000); // 🔑 Simulates DB query delay
+            // 🔑 Continuation may resume on a different thread
+            Console.WriteLine($"MethodDB resumed after await on Thread {Environment.CurrentManagedThreadId}");
             return "MethodDB Result";
         }
 
         public async Task<string> MethodFileSystem()
         {
-            // Simulate asynchronous operation (e.g., reading from a file)
-            await Task.Delay(8000); // Simulate delay
+            Console.WriteLine($"MethodFileSystem started on Thread {Environment.CurrentManagedThreadId}");
+            await Task.Delay(8000); // 🔑 Simulates file system I/O delay
+            // 🔑 Continuation may resume on a different thread
+            Console.WriteLine($"MethodFileSystem resumed after await on Thread {Environment.CurrentManagedThreadId}");
             return "MethodFileSystem Result";
         }
     }
