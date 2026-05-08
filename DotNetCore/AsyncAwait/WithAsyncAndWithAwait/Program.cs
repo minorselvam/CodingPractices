@@ -9,6 +9,10 @@ namespace WithAsyncAndWithAwait
         // 🔑 Async/Await in .NET 8: allows asynchronous code directly in Main
         static async Task Main(string[] args)
         {
+            // 📌 Definition: A thread is the smallest unit of execution inside a process.
+            // Each process can have multiple threads. In .NET, threads are managed by the Thread Pool.
+            // In .NET, threads are managed by the Thread Pool, which reuses threads to avoid the overhead of creating new ones.
+
             // Thread ID before any async calls
             Console.WriteLine($"Main started on Thread {Environment.CurrentManagedThreadId}");
 
@@ -23,6 +27,9 @@ namespace WithAsyncAndWithAwait
 
             Console.WriteLine("Method 1 called");
             // 🔑 Await pauses execution until task completes, without blocking the thread
+            // 📌 After the delay finishes, the continuation may resume on the same thread 
+            // or a different thread (depending on the SynchronizationContext).
+
             var a = await objHelper.MethodAPI();
             // 🔑 Thread IDs before and after await → may differ, showing that the thread was released and resumed later
             Console.WriteLine($"Continuation after MethodAPI on Thread {Environment.CurrentManagedThreadId}");
