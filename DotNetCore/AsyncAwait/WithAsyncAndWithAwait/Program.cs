@@ -41,7 +41,7 @@ namespace WithAsyncAndWithAwaitInSequentialOrder
 
             Console.WriteLine("Method 1 called");
             // 🔑 Await pauses execution until task completes, without blocking the thread
-            // 📌 After the delay finishes, the continuation may resume on the same thread 
+            // 📌 After the delay/task finishes, the continuation may resume on the same thread 
             // or a different thread (depending on the SynchronizationContext).
 
             // 🔑 Sequential execution: each method runs after the previous one finishes
