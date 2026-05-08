@@ -2,7 +2,21 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace WithAsyncAndWithAwait
+/*
+Sequential await
+
+Runs one after another.
+
+Total time = sum of delays (~19s).
+
+Use case: steps that depend on each other (e.g., validate → save → notify). 
+
+Sequential → predictable order, slower, good for dependent tasks.
+
+Real-world use case: Aggregating microservice calls in ASP.NET Core to reduce API response time.
+*/
+
+namespace WithAsyncAndWithAwaitInSequentialOrder
 {
     internal class Program
     {
@@ -14,7 +28,7 @@ namespace WithAsyncAndWithAwait
             // In .NET, threads are managed by the Thread Pool, which reuses threads to avoid the overhead of creating new ones.
 
             // Thread ID before any async calls
-            Console.WriteLine($"Main started on Thread {Environment.CurrentManagedThreadId}");
+            Console.WriteLine($"SequentialProgram started on Thread {Environment.CurrentManagedThreadId}");
 
             // 🔑 Stopwatch for Performance Measurement
             Stopwatch stopwatch = new Stopwatch();
@@ -23,13 +37,14 @@ namespace WithAsyncAndWithAwait
             Console.WriteLine("With Async And With Await");
             Console.WriteLine(System.Environment.NewLine);
 
-            WithAsyncAndWithAwaitHelper objHelper = new WithAsyncAndWithAwaitHelper();
+            WithAsyncAndWithAwaitInSequentialOrderHelper objHelper = new WithAsyncAndWithAwaitInSequentialOrderHelper();
 
             Console.WriteLine("Method 1 called");
             // 🔑 Await pauses execution until task completes, without blocking the thread
             // 📌 After the delay finishes, the continuation may resume on the same thread 
             // or a different thread (depending on the SynchronizationContext).
 
+            // 🔑 Sequential execution: each method runs after the previous one finishes
             var a = await objHelper.MethodAPI();
             // 🔑 Thread IDs before and after await → may differ, showing that the thread was released and resumed later
             Console.WriteLine($"Continuation after MethodAPI on Thread {Environment.CurrentManagedThreadId}");
@@ -57,8 +72,8 @@ namespace WithAsyncAndWithAwait
             Console.WriteLine("Total execution time: " + stopwatch.ElapsedMilliseconds + " ms");
             // 🔑 Thread ID at the end of Main — may differ from the start
             Console.WriteLine($"Main finished on Thread {Environment.CurrentManagedThreadId}");
-        }
-    }
 
-    
+            // 📌 Total time ≈ sum of delays (5s + 6s + 8s = ~19s)
+        }
+    }    
 }

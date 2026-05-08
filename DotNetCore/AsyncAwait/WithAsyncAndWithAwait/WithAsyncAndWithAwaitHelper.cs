@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WithAsyncAndWithAwait
+namespace WithAsyncAndWithAwaitInSequentialOrder
 {
-    internal class WithAsyncAndWithAwaitHelper
+    internal class WithAsyncAndWithAwaitInSequentialOrderHelper
     {
         public async Task<string> MethodAPI()
         {
