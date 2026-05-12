@@ -1,0 +1,122 @@
+📂 Resource Group
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2021-04-01",
+      "location": "southindia",
+      "name": "TestMskRsGrp"
+    }
+  ]
+}
+
+
+📦 Azure Container Registry (ACR)
+{
+  "type": "Microsoft.ContainerRegistry/registries",
+  "apiVersion": "2023-01-01-preview",
+  "name": "TestMskACR",
+  "location": "southindia",
+  "sku": {
+    "name": "Basic"
+  },
+  "properties": {
+    "adminUserEnabled": false,
+    "publicNetworkAccess": "Enabled"
+  }
+}
+
+
+☸️ Azure Kubernetes Service (AKS)
+{
+  "type": "Microsoft.ContainerService/managedClusters",
+  "apiVersion": "2023-08-01",
+  "name": "TestMskAKS",
+  "location": "southindia",
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "sku": {
+    "name": "Base",
+    "tier": "Free"
+  },
+  "properties": {
+    "dnsPrefix": "TestMskAKS-dns",
+    "agentPoolProfiles": [
+      {
+        "name": "agentpool",
+        "count": 2,
+        "vmSize": "Standard_D4ds_v5",
+        "osType": "Linux",
+        "mode": "System",
+        "enableAutoScaling": true,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "enableRBAC": true,
+    "networkProfile": {
+      "networkPlugin": "azure",
+      "loadBalancerSku": "Standard",
+      "serviceCidr": "10.0.0.0/16",
+      "dnsServiceIP": "10.0.0.10",
+      "podCidr": "10.244.0.0/16"
+    }
+  }
+}
+
+
+📡 Azure Service Bus
+{
+  "type": "Microsoft.ServiceBus/namespaces",
+  "apiVersion": "2022-10-01-preview",
+  "name": "TestMskServiceBus",
+  "location": "southindia",
+  "sku": {
+    "name": "Standard",
+    "tier": "Standard"
+  },
+  "properties": {}
+},
+{
+  "type": "Microsoft.ServiceBus/namespaces/topics",
+  "apiVersion": "2022-10-01-preview",
+  "name": "TestMskServiceBus/OrderTopic",
+  "properties": {}
+},
+{
+  "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+  "apiVersion": "2022-10-01-preview",
+  "name": "TestMskServiceBus/OrderTopic/PaymentSubscription",
+  "properties": {}
+},
+{
+  "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+  "apiVersion": "2022-10-01-preview",
+  "name": "TestMskServiceBus/OrderTopic/ShippingSubscription",
+  "properties": {}
+}
+
+
+🛠 How to Deploy
+Save each template as a .json file (e.g., acr.json, aks.json, servicebus.json).
+
+Deploy with Azure CLI:
+
+az deployment group create \
+  --resource-group TestMskRsGrp \
+  --template-file acr.json
+
+Repeat for AKS and Service Bus.
+
+✅ What You Get
+Resource Group: TestMskRsGrp in South India.
+
+ACR: TestMskACR with Basic SKU.
+
+AKS: TestMskAKS cluster with 2 Linux nodes, autoscaling enabled.
+
+Service Bus: Namespace + Topic + Subscriptions for Order → Payment → Shipping workflow.
