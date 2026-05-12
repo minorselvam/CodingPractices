@@ -4,18 +4,18 @@
 # For more information, please see https://aka.ms/containercompat
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-1809 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
 
 # This stage is used to build the service project
-FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["OrderService/OrderService.csproj", "OrderService/"]
-RUN dotnet restore "./OrderService/OrderService.csproj"
+COPY ["OrderService.csproj", "OrderService/"]
+RUN dotnet restore "./OrderService.csproj"
 COPY . .
 WORKDIR "/src/OrderService"
 RUN dotnet build "./OrderService.csproj" -c %BUILD_CONFIGURATION% -o /app/build
