@@ -17,23 +17,34 @@ public class OrderController : ControllerBase
 
     // Constructor: receives a ServiceBusClient (registered in Program.cs)
     // and creates a sender for the "orderqueue"
-    public OrderController(ServiceBusClient client)
+    //public OrderController(ServiceBusClient client)
+    //{
+    //    _sender = client.CreateSender("orderqueue");
+    //}
+
+    public OrderController( )
     {
-        _sender = client.CreateSender("orderqueue");
+         
     }
 
     // Defines an HTTP POST endpoint at: api/order/place
     [HttpPost("place")]
     public async Task<IActionResult> PlaceOrder([FromBody] Order order)
     {
-        // Serialize the Order object into JSON and wrap it in a ServiceBusMessage
-        var message = new ServiceBusMessage(JsonSerializer.Serialize(order));
+        //// Serialize the Order object into JSON and wrap it in a ServiceBusMessage
+        //var message = new ServiceBusMessage(JsonSerializer.Serialize(order));
 
-        // Send the message to Azure Service Bus (to the "orderqueue")
-        await _sender.SendMessageAsync(message);
+        //// Send the message to Azure Service Bus (to the "orderqueue")
+        //await _sender.SendMessageAsync(message);
 
         // Return a 200 OK response with a confirmation message
         return Ok($"Order placed with Id {order.Id}");
+    }
+
+    [HttpGet("TestOrder")]
+    public string TestOrder()
+    {
+        return  "test order result";
     }
 }
 
