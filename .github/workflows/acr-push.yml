@@ -4,26 +4,25 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Azure-Practices/AzureServiceBus/ShoppingMicroServices/**'
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        service:
+          - OrderService/OrderService
+          - PaymentService/PaymentService
+          - ShippingService/ShippingService
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Log in to Azure
-      uses: azure/login@v1
+    - uses: actions/checkout@v3
+    - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Log in to ACR
-      run: |
-        az acr login --name ${{ secrets.ACR_NAME }}
-
-    - name: Build and Push Docker image
-      run: |
-        cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/OrderService/OrderService
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderapi:v1 .
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderapi:v1
+    - run: az acr login --name ${{ secrets.ACR_NAME }}
+    - run: |
+        cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/${{ matrix.service }}
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/${{ matrix.service }}:v1 .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ matrix.service }}:v1
