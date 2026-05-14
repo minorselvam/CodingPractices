@@ -71,33 +71,45 @@
 
 📡 Azure Service Bus
 {
-  "type": "Microsoft.ServiceBus/namespaces",
-  "apiVersion": "2022-10-01-preview",
-  "name": "TestMskServiceBus",
-  "location": "southindia",
-  "sku": {
-    "name": "Standard",
-    "tier": "Standard"
-  },
-  "properties": {}
-},
-{
-  "type": "Microsoft.ServiceBus/namespaces/topics",
-  "apiVersion": "2022-10-01-preview",
-  "name": "TestMskServiceBus/OrderTopic",
-  "properties": {}
-},
-{
-  "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
-  "apiVersion": "2022-10-01-preview",
-  "name": "TestMskServiceBus/OrderTopic/PaymentSubscription",
-  "properties": {}
-},
-{
-  "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
-  "apiVersion": "2022-10-01-preview",
-  "name": "TestMskServiceBus/OrderTopic/ShippingSubscription",
-  "properties": {}
+    "apiVersion": "2025-05-01-preview",
+    "id": "/subscriptions/fda847be-0b62-496c-afdb-edf662086d87/resourceGroups/TestMskRsGrp/providers/Microsoft.ServiceBus/namespaces/TestMskServBs",
+    "name": "TestMskServBs",
+    "type": "microsoft.servicebus/namespaces",
+    "sku": {
+        "name": "Basic",
+        "tier": "Basic"
+    },
+    "location": "southindia",
+    "tags": {},
+    "properties": {
+        "platformCapabilities": {
+            "confidentialCompute": {
+                "mode": "Disabled"
+            }
+        },
+        "errors": [],
+        "geoDataReplication": {
+            "maxReplicationLagDurationInSeconds": 0,
+            "locations": [
+                {
+                    "locationName": "southindia",
+                    "roleType": "Primary",
+                    "replicaState": "Ready"
+                }
+            ]
+        },
+        "premiumMessagingPartitions": 0,
+        "minimumTlsVersion": "1.2",
+        "publicNetworkAccess": "Enabled",
+        "disableLocalAuth": false,
+        "zoneRedundant": false,
+        "provisioningState": "Succeeded",
+        "status": "Active",
+        "createdAt": "2026-05-14T15:41:08.536Z",
+        "updatedAt": "2026-05-14T15:41:14Z",
+        "metricId": "fda847be-0b62-496c-afdb-edf662086d87:testmskservbs",
+        "serviceBusEndpoint": "https://TestMskServBs.servicebus.windows.net:443/"
+    }
 }
 
 
