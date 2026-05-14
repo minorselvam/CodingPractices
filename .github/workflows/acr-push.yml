@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Azure-Practices/AzureServiceBus/ShoppingMicroServices/**'
 
 jobs:
-  build-and-push:
+  orderservice:
     runs-on: ubuntu-latest
-
+    if: contains(github.event.head_commit.message, 'OrderService') || contains(join(github.event.commits.*.modified), 'OrderService')
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -19,11 +21,52 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Log in to ACR
-      run: |
-        az acr login --name ${{ secrets.ACR_NAME }}
+      run: az acr login --name ${{ secrets.ACR_NAME }}
 
-    - name: Build and Push Docker image
+    - name: Build and Push OrderService image
       run: |
         cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/OrderService/OrderService
         docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderapi:v1 .
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderapi:v1
+
+  paymentservice:
+    runs-on: ubuntu-latest
+    if: contains(join(github.event.commits.*.modified), 'PaymentService')
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Log in to ACR
+      run: az acr login --name ${{ secrets.ACR_NAME }}
+
+    - name: Build and Push PaymentService image
+      run: |
+        cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/PaymentService/PaymentService
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/paymentapi:v1 .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/paymentapi:v1
+
+  shippingservice:
+    runs-on: ubuntu-latest
+    if: contains(join(github.event.commits.*.modified), 'ShippingService')
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Log in to ACR
+      run: az acr login --name ${{ secrets.ACR_NAME }}
+
+    - name: Build and Push ShippingService image
+      run: |
+        cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/ShippingService/ShippingService
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/shippingapi:v1 .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/shippingapi:v1
