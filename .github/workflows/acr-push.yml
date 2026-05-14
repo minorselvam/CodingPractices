@@ -4,14 +4,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Azure-Practices/AzureServiceBus/ShoppingMicroServices/**'
 
 jobs:
-  build-and-push:
+  orderservice:
     runs-on: ubuntu-latest
-
+    if: contains(join(github.event.commits.*.modified), 'OrderService')
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
     - name: Log in to Azure
       uses: azure/login@v1
@@ -19,11 +20,10 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Log in to ACR
-      run: |
-        az acr login --name ${{ secrets.ACR_NAME }}
+      run: az acr login --name ${{ secrets.ACR_NAME }}
 
-    - name: Build and Push Docker image
+    - name: Build and Push OrderService image
       run: |
         cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/OrderService/OrderService
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderapi:v1 .
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderapi:v1
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1 .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1
