@@ -12,9 +12,9 @@ namespace OrderService
             // Add services to the container.
 
             // Add Service Bus client
-            builder.Services.AddSingleton(new ServiceBusClient(
-              builder.Configuration["AzureServiceBus"]));
-
+            // builder.Services.AddSingleton(new ServiceBusClient(builder.Configuration["AzureServiceBus"]));
+             builder.Services.AddSingleton(new ServiceBusClient(Environment.GetEnvironmentVariable("AzureServiceBus")));
+            
             // Add background worker
             builder.Services.AddHostedService<ShippingListener>();
 
