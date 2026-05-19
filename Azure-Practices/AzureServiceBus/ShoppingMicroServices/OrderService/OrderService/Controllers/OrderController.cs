@@ -22,10 +22,10 @@ public class OrderController : ControllerBase
         _sender = client.CreateSender("orderqueue");
     }
 
-    public OrderController( )
-    {
+    //public OrderController( )
+    //{
          
-    }
+    //}
 
     // Defines an HTTP POST endpoint at: api/order/place
     [HttpPost("place")]
