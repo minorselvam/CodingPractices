@@ -17,8 +17,8 @@ jobs:
     - run: az acr login --name ${{ secrets.ACR_NAME }}
     - run: |
         cd Azure-Practices/AzureServiceBus/ShoppingMicroServices/OrderService/OrderService
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1 .
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v2 .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v2
 
   paymentservice:
     runs-on: ubuntu-latest
