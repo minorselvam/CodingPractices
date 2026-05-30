@@ -32,7 +32,8 @@ public class PaymentListener : BackgroundService
             var payment = JsonSerializer.Deserialize<Payment>(args.Message.Body.ToString());
 
             // Create a Shipping object to confirm shipping for this order
-            var shipping = new Shipping(payment!.OrderId, "Shipping Done");
+            var shipping = new Shipping(payment!.OrderId, "Shipping Started");
+
 
             // Serialize and publish the Shipping object to shippingqueue
             await _sender.SendMessageAsync(new ServiceBusMessage(JsonSerializer.Serialize(shipping)));
@@ -41,7 +42,7 @@ public class PaymentListener : BackgroundService
             await args.CompleteMessageAsync(args.Message);
 
             // Log to console for visibility
-            Console.WriteLine($"Shipping processed for Order {payment.OrderId}");
+            Console.WriteLine($"Shipping started for Order {payment.OrderId}");
         };
 
         // Define error handling logic
