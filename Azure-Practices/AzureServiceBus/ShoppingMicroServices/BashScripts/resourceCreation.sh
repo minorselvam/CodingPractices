@@ -57,37 +57,90 @@ echo "Expected Result: ACR TestMskACR listed with SKU Basic."
 echo ">>> Creating aks-template.json..."
 cat <<'EOF' > aks-template.json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
+  // Schema reference for ARM template validation
+
+  "contentVersion": "1.0.0.0", 
+  // Version of this template (for tracking changes)
+
+  "resources": [ 
+    // List of resources to be deployed in Azure
+
     {
-      "type": "Microsoft.ContainerService/managedClusters",
-      "apiVersion": "2023-08-01",
-      "name": "TestMskAKS",
-      "location": "southindia",
-      "identity": { "type": "SystemAssigned" },
-      "sku": { "name": "Base", "tier": "Free" },
-      "properties": {
-        "dnsPrefix": "TestMskAKS-dns",
-        "agentPoolProfiles": [
+      "type": "Microsoft.ContainerService/managedClusters", 
+      // Resource type: creates an AKS (Azure Kubernetes Service) cluster
+
+      "apiVersion": "2023-08-01", 
+      // API version used for AKS resource creation
+
+      "name": "TestMskAKS", 
+      // Name of the AKS cluster
+
+      "location": "southindia", 
+      // Azure region where the cluster will be deployed
+
+      "identity": { "type": "SystemAssigned" }, 
+      // Enables a system-assigned managed identity for secure resource access
+
+      "sku": { "name": "Base", "tier": "Free" }, 
+      // Pricing tier for AKS (Base/Free tier)
+
+      "properties": { 
+        // Cluster configuration details
+
+        "dnsPrefix": "TestMskAKS-dns", 
+        // DNS prefix for the cluster API server endpoint
+
+        "agentPoolProfiles": [ 
+          // Defines the node pool (worker nodes) for the cluster
+
           {
-            "name": "agentpool",
-            "count": 2,
-            "vmSize": "Standard_D4ds_v5",
-            "osType": "Linux",
-            "mode": "System",
-            "enableAutoScaling": true,
-            "minCount": 2,
-            "maxCount": 5
+            "name": "agentpool", 
+            // Name of the node pool
+
+            "count": 2, 
+            // Initial number of nodes in the pool
+
+            "vmSize": "Standard_D4ds_v5", 
+            // VM size for each node (CPU/memory capacity)
+
+            "osType": "Linux", 
+            // Operating system for nodes (Linux)
+
+            "mode": "System", 
+            // Marks this pool as the system node pool (required for AKS)
+
+            "enableAutoScaling": true, 
+            // Enables autoscaling for nodes
+
+            "minCount": 2, 
+            // Minimum number of nodes allowed in autoscaling
+
+            "maxCount": 5 
+            // Maximum number of nodes allowed in autoscaling
           }
         ],
-        "enableRBAC": true,
-        "networkProfile": {
-          "networkPlugin": "azure",
-          "loadBalancerSku": "Standard",
-          "serviceCidr": "10.0.0.0/16",
-          "dnsServiceIP": "10.0.0.10",
-          "podCidr": "10.244.0.0/16"
+
+        "enableRBAC": true, 
+        // Enables Role-Based Access Control (RBAC) for cluster security
+
+        "networkProfile": { 
+          // Networking configuration for the cluster
+
+          "networkPlugin": "azure", 
+          // Uses Azure CNI plugin for networking (pods get Azure IPs)
+
+          "loadBalancerSku": "Standard", 
+          // Type of load balancer (Standard supports advanced features)
+
+          "serviceCidr": "10.0.0.0/16", 
+          // IP range for Kubernetes services
+
+          "dnsServiceIP": "10.0.0.10", 
+          // IP address for the cluster DNS service
+
+          "podCidr": "10.244.0.0/16" 
+          // IP range for pods in the cluster
         }
       }
     }
