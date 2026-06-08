@@ -22,14 +22,14 @@ CONN_STR=$(az servicebus namespace authorization-rule keys list \
   --namespace-name TestMskServBs \
   --name RootManageSharedAccessKey \
   --query primaryConnectionString -o tsv)
-echo "Expected Result: Full connection string printed."
+#echo "Expected Result: Full connection string printed."
 
 # ============================================================
 # Step 2: Create Kubernetes Secret
 # ============================================================
 echo ">>> Creating Kubernetes Secret..."
 kubectl create secret generic servicebus-secret --from-literal=AzureServiceBus="$CONN_STR"
-echo "Expected Result: Secret servicebus-secret created."
+#echo "Expected Result: Secret servicebus-secret created."
 
 # ============================================================
 # Step 3: Create and Deploy Order Service YAML
