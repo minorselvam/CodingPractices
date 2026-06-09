@@ -43,7 +43,7 @@ metadata:
   labels:
     app: orderapi
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: orderapi
@@ -55,6 +55,7 @@ spec:
       containers:
       - name: orderapi
         image: testmskacr.azurecr.io/orderservice:v2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
@@ -63,6 +64,36 @@ spec:
             secretKeyRef:
               name: servicebus-secret
               key: AzureServiceBus
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 20
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
+      # Optional: schedule on cheaper node pool (uncomment if you created a B-series node pool named "spotpool")
+      # nodeSelector:
+      #   kubernetes.io/role: agent
+      #   nodepool: spotpool
+      # tolerations:
+      # - key: "spot"
+      #   operator: "Exists"
+      #   effect: "NoSchedule"
+
 EOF
 
 echo ">>> Deploying Order Service..."
@@ -83,7 +114,7 @@ metadata:
   labels:
     app: paymentservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: paymentservice
@@ -95,6 +126,7 @@ spec:
       containers:
       - name: paymentservice
         image: testmskacr.azurecr.io/paymentservice:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
@@ -103,6 +135,27 @@ spec:
             secretKeyRef:
               name: servicebus-secret
               key: AzureServiceBus
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 20
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
 ---
 apiVersion: v1
 kind: Service
@@ -134,7 +187,7 @@ metadata:
   labels:
     app: shippingservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: shippingservice
@@ -146,6 +199,7 @@ spec:
       containers:
       - name: shippingservice
         image: testmskacr.azurecr.io/shippingservice:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
@@ -154,6 +208,34 @@ spec:
             secretKeyRef:
               name: servicebus-secret
               key: AzureServiceBus
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 20
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
+      # Optional: schedule on cheaper node pool (uncomment if you create a B-series or spot pool)
+      # nodeSelector:
+      #   nodepool: cheappool
+      # tolerations:
+      # - key: "spot"
+      #   operator: "Exists"
+      #   effect: "NoSchedule"
 ---
 apiVersion: v1
 kind: Service

@@ -98,10 +98,10 @@ cat <<'EOF' > aks-template.json
             "name": "agentpool", 
             // Name of the node pool
 
-            "count": 2, 
+            "count": 1, 
             // Initial number of nodes in the pool
 
-            "vmSize": "Standard_D4ds_v5", 
+            "vmSize": "Standard_B2s", 
             // VM size for each node (CPU/memory capacity)
 
             "osType": "Linux", 
@@ -113,10 +113,10 @@ cat <<'EOF' > aks-template.json
             "enableAutoScaling": true, 
             // Enables autoscaling for nodes
 
-            "minCount": 2, 
+            "minCount": 0, 
             // Minimum number of nodes allowed in autoscaling
 
-            "maxCount": 5 
+            "maxCount": 2 
             // Maximum number of nodes allowed in autoscaling
           }
         ],
