@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link component for navigation
 
 function Order() {
     return (
-        <div>
+        <div>            
             <h2>Order Component</h2>
-            <Link to="/payment">Go to Payment</Link>
+            {/* Link navigates to /payment route and passes orderId in state */}
+            <Link to="/payment" state={{orderID:123}}>Go to Payment</Link>
         </div>
     );
 }
