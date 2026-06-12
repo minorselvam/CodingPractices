@@ -10,10 +10,18 @@ function Payment() {
     // Extract orderId from location.state (data passed from Order component).
     // If state is undefined, fallback to empty object to avoid errors.
 
+    //Create one object with all the values
+    const orderData = {orderID, paymentAmount:495}
+
     return (
         <div>
             <h2>Payment for Order {orderID}</h2>
-            <Link to="/shipping">Go to Shipping</Link>
+             {/* Passing multiple values separately 
+                <Link to="/Shipping" state={{orderID:orderID, paymentAmount:495}}>Go to Shipping</Link> 
+             */}
+
+            {/* Passing multiple values in single object */}
+            <Link to="/Shipping" state={orderData}>Go to Shipping</Link> 
         </div>
     )
 }

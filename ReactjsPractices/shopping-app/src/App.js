@@ -1,17 +1,17 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Order from './components/order/order';
-import Payment from './components/payment/payment';
-import Shipping from './components/shipping/shipping';
+import Order from './components/Order/Order';
+import Payment from './components/Payment/Payment';
+import Shipping from './components/Shipping/Shipping';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Order/>} />
-        <Route path="/payment" element={<Payment/>} />
-        <Route path="/shipping" element={<Shipping/>} />
+        <Route path="/Payment" element={<Payment/>} />
+        <Route path="/Shipping" element={<Shipping/>} />
       </Routes>
     </Router>
   );
