@@ -24,7 +24,7 @@ namespace AbstractClassExForPaymentProcess
         // Rule: These can have body/implementation.
         public void PrintMessage()
         {
-            Console.WriteLine("test message");
+            Console.WriteLine("Payment Processed Successfully...");
         }
     }
 }

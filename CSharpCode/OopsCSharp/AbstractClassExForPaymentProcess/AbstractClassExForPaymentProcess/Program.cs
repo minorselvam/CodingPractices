@@ -16,12 +16,16 @@ namespace AbstractClassExForPaymentProcess
             //abstract reference here is payment
             //derived object is new CreditCardPayment(); 
             payment = new CreditCardPayment();
-
             //Call the derived class method i.e CreditCardPayment.ProcessPayment()
-            payment.ProcessPayment(500.00); 
+            payment.ProcessPayment(500.00);
 
-            payment = new InsurancePayment(); 
+            //derived object is new InsurancePayment(); 
+            payment = new InsurancePayment();
+            //Call the derived class method i.e InsurancePayment.ProcessPayment()
             payment.ProcessPayment(1200.00);
+
+            // Call normal method (shared base functionality)
+            payment.PrintMessage();
         }
     }
 
@@ -47,7 +51,7 @@ namespace AbstractClassExForPaymentProcess
 
     /*
      Client Code (Program)  
-        Uses the abstract class reference. This means the hospital system can easily switch between 
+        Uses the abstract class reference. This means the client system can easily switch between 
         payment methods without changing the core logic.
     */
 
@@ -68,13 +72,18 @@ namespace AbstractClassExForPaymentProcess
         This is part of the existing code. It defines the abstract contract (ProcessPayment) that all payment methods must follow.
         You don’t need to change this when adding a new payment method, unless you want to add new behaviors that apply to all processors.
 
-        Derived Classes (CreditCardPayment, InsurancePayment, DigitalWalletPayment)  
-        These are also existing code. They already implement the contract. You don’t touch them when adding UPI.
+        Derived Classes (CreditCardPayment, InsurancePayment)  
+        These are also existing code. They already implement the contract. You don’t touch them when adding new payment method.
+
+        New Payment method adding scenerio: Only we need to add a new classes to support new payment methods (For Ex - DigitalWalletPayment)
 
         Program Class (Client Code)  
-        This is where you use the payment processors. If you want to actually call the new UPI payment method, you’ll add a 
-        line here to instantiate and use it.
+        This is where you use the payment processors. 
+        If you want to actually call the new payment (DigitalWalletPayment) method, you’ll add a line here to instantiate and use it.
         Technically, this is the only place you’d “touch” when integrating the new class into your workflow.    
+
+        The same can be done using interfaces also. But one major difference is there between Abstract class and Interfaces. 
+        See the details of it in Explanation.cs file.
      
     */
 

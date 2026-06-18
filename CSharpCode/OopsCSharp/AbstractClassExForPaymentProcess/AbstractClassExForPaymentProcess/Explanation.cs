@@ -29,5 +29,24 @@ namespace AbstractClassExForPaymentProcess
             Abstract = Rulebook 📘 (no body, must override).
             Virtual = Default behavior ⚙️ (has body, may override).
             Think A-D-C → Abstract → Derived → Client.
+
+
+          Abstract vs Interface
+          ----------------------------------------------------------------------
+          🧩 Abstraction (Abstract Classes)
+            Abstract class is declared with abstract keyword.
+            Can contain abstract methods (no body) and normal methods (with body).
+            Can also have fields, properties, and constructors.
+            Supports runtime polymorphism — derived classes must override abstract methods.
+            Use case: When you want to enforce a contract and share base functionality.
+            Example: PaymentProcessor with ProcessPayment() (abstract) and PrintMessage() (shared normal method).
+
+        🧩 Interfaces
+            Interface is declared with interface keyword.
+            Contains only method signatures (until C# 8, which added default implementations).
+            Cannot have fields or constructors.
+            A class can implement multiple interfaces (multiple inheritance of contracts).
+            Use case: When you want pure contracts with no shared implementation.
+            Example: IPaymentProcessor with only ProcessPayment() defined.
      */
 }
