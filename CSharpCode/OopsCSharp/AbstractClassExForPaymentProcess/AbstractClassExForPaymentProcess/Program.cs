@@ -1,4 +1,7 @@
-﻿namespace AbstractClassExForPaymentProcess
+﻿using System.Data;
+using System.Runtime.Intrinsics.X86;
+
+namespace AbstractClassExForPaymentProcess
 {
     internal class Program
     {
@@ -7,9 +10,14 @@
             Console.WriteLine("Hello, World!");
 
             // Staff only interacts with abstract class reference
-            PaymentProcessor payment;
+            PaymentProcessor payment; // Rule: Abstract classes cannot be instantiated directly.
 
-            payment = new CreditCardPayment(); 
+            // Rule: Use abstract reference pointing to derived object.
+            //abstract reference here is payment
+            //derived object is new CreditCardPayment(); 
+            payment = new CreditCardPayment();
+
+            //Call the derived class method i.e CreditCardPayment.ProcessPayment()
             payment.ProcessPayment(500.00); 
 
             payment = new InsurancePayment(); 
@@ -18,7 +26,13 @@
     }
 
     /*
-     
+     Abstraction in C# Object-Oriented Programming (OOP) is the concept of hiding implementation details and exposing only the necessary 
+     features of an object. 
+     It helps in reducing complexity and increasing efficiency by allowing users to focus on what an object 
+     does rather than how it does it.
+    */
+
+    /*     
     🔍 Explanation
         Abstract Class (PaymentProcessor)  
         Defines the contract for processing payments. It doesn’t care about the details of credit card, insurance, or wallet systems.
@@ -67,9 +81,7 @@
     /*
     🔍 Key Insight
         Existing code = Base class + already implemented derived classes.
-
         Minimal change = Only the Program class (client code) needs a new line to use the new derived class.
-
         The beauty of abstraction: you don’t rewrite or modify existing payment classes, you just extend the system with a new one.
     */
 }
