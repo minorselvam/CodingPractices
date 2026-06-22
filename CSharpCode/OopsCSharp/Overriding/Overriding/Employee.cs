@@ -8,8 +8,8 @@ namespace Overriding
 {
     public class Employee
     {
-        public Employee() 
-        { 
+        public Employee()
+        {
             Console.WriteLine("Employee class constructor called");
         }
 

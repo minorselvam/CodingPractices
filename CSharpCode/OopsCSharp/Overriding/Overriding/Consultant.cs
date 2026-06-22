@@ -46,10 +46,12 @@ namespace Overriding
 {
     public class Consultant : Employee
     {
-        public Consultant() :base()
+        public Consultant() 
         {
             Console.WriteLine("Consultant class constructor called");
         }
+
+        //Even if you don’t write : base(), the compiler will automatically call the parameterless base constructor if one exists.
 
         public override double CalculateBonus()
         {
