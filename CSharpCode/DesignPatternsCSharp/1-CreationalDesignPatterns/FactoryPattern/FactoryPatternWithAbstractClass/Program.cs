@@ -9,7 +9,7 @@
 
             try
             {
-                ReportGenerator reportGenerator = FactoryPatternWithAbstractExample.CreateReport(reportType);
+                ReportGenerator.ReportGenerator reportGenerator = FactoryPatternWithAbstractExample.CreateReport(reportType);
                 reportGenerator.GenerateReport();
             }
             catch(Exception ex)
