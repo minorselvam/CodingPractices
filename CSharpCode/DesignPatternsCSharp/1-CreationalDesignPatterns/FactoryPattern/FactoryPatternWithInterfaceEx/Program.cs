@@ -1,4 +1,7 @@
-﻿namespace FactoryPatternWithInterfaceEx
+﻿using FactoryPatternWithInterfaceEx.FactoryClass;
+using FactoryPatternWithInterfaceEx.Interfaces;
+
+namespace FactoryPatternWithInterfaceEx
 {
     internal class Program
     {

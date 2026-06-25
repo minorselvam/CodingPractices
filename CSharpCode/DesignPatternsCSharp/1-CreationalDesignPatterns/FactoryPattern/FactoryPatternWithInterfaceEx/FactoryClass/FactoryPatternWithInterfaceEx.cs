@@ -16,53 +16,16 @@ Suppose you are building a reporting system that can generate different types of
 The Factory pattern allows you to encapsulate the logic for creating the correct report generator based on user input
 */
 
+using FactoryPatternWithInterfaceEx.Interfaces;
+using FactoryPatternWithInterfaceEx.ReportClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FactoryPatternWithInterfaceEx
+namespace FactoryPatternWithInterfaceEx.FactoryClass
 {
-    // 1. Define the Common Product Interface
-    public interface IReportGenerator
-    {
-        void GenerateReport();
-    }
-
-    // 2. Implement concrete classes for each product type
-    public class SalesReport : IReportGenerator
-    {
-        public void GenerateReport()
-        {
-            Console.WriteLine("Generating Sales Report...");
-        }
-    }
-
-    public class InventoryReport : IReportGenerator
-    {
-        public void GenerateReport()
-        {
-            Console.WriteLine("Generating Inventory Report...");
-        }
-    }
-
-    public class HRReport : IReportGenerator
-    {
-        public void GenerateReport()
-        {
-            Console.WriteLine("Generating HR Report...");
-        }
-    }
-
-    public class LoanReport : IReportGenerator
-    {
-        public void GenerateReport()
-        {
-            Console.WriteLine("Generating Loan Report...");
-        }
-    }
-
     // 3. Factory Class to Produce the Products
     public static class FactoryPatternExample
     {
