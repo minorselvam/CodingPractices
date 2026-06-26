@@ -18,8 +18,8 @@ namespace MyApp
             S1.PrintDetails();
 
             // Both references point to the same instance
-            Console.WriteLine("Is object.ReferenceEquals: " + object.ReferenceEquals(S1, S2)); // Output: True
-          
+            Console.WriteLine("Is object.ReferenceEquals: " + object.ReferenceEquals(S1, S2)); // Output should be true. Because the Singleton should maintain the same instance
+
 
 
             //Logger Instance Checking
