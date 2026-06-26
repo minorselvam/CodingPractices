@@ -1,12 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel;
-using System.Diagnostics.Contracts;
-using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.Arm;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Channels;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DepInjWithAbstStrategyPattern
 {
