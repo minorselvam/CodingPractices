@@ -1,0 +1,6 @@
+@AzEvHbPaymentService_HostAddress = http://localhost:5046
+
+GET {{AzEvHbPaymentService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
