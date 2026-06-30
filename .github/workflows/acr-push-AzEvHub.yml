@@ -16,7 +16,8 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - run: az acr login --name ${{ secrets.ACR_NAME }}
     - run: |
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1 ./Azure-Practices/AzureEventHub/ShippingLogisticsPOC/OrderService/OrderService
+        cd Azure-Practices/AzureEventHub/ShippingLogisticsPOC/AzEvHbOrderService/AzEvHbOrderService
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1 .
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1
 
   paymentservice:
@@ -29,7 +30,8 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - run: az acr login --name ${{ secrets.ACR_NAME }}
     - run: |
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/paymentservice:v1 ./Azure-Practices/AzureEventHub/ShippingLogisticsPOC/PaymentService/PaymentService
+        cd Azure-Practices/AzureEventHub/ShippingLogisticsPOC/AzEvHbPaymentService/AzEvHbPaymentService
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/paymentservice:v1 .
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/paymentservice:v1
 
   shippingservice:
@@ -42,5 +44,6 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - run: az acr login --name ${{ secrets.ACR_NAME }}
     - run: |
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/shippingservice:v1 ./Azure-Practices/AzureEventHub/ShippingLogisticsPOC/ShippingService/ShippingService
+        cd Azure-Practices/AzureEventHub/ShippingLogisticsPOC/AzEvHbShippingService/AzEvHbShippingService
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/shippingservice:v1 .
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/shippingservice:v1
