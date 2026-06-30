@@ -50,11 +50,7 @@ az eventhubs eventhub create \
 
 az eventhubs eventhub show --name TestMskEvHb --resource-group TestMskRsGrp --namespace-name TestMskEvHbNs --output table
 
-# ============================================================
-# Step 8: Create Authorization Rule
-# ============================================================
-az eventhubs namespace authorization-rule create \
-  --resource-group TestMskRsGrp \
-  --namespace-name TestMskEvHbNs \
-  --name "SendListenPolicy" \
-  --rights Send Listen Manage
+ 
+ 
+Access Policy of Event Hub (TestMskEvHb) is "RootManageSharedAccessKey"
+ 
