@@ -1,0 +1,92 @@
+#!/bin/bash
+set -e  # Exit immediately if a command fails
+
+# ============================================================
+# Logging Setup
+# ============================================================
+LOGFILE="resourceCreation_$(date +%Y%m%d_%H%M%S).log"
+exec > >(tee -a "$LOGFILE") 2>&1
+
+echo "============================================================"
+echo "Deployment started at $(date)"
+echo "Logs will be saved to $LOGFILE"
+echo "============================================================"
+
+# ============================================================
+# Step 1: Create Resource Group
+# ============================================================
+az group create --name TestMskRsGrp --location southindia
+az group show --name TestMskRsGrp --output table
+
+# ============================================================
+# Step 2: Create ACR (must be lowercase)
+# ============================================================
+az acr create \
+  --resource-group TestMskRsGrp \
+  --name testmskacr \
+  --sku Basic \
+  --location southindia
+
+az acr show --name testmskacr --resource-group TestMskRsGrp --output table
+
+# ============================================================
+# Step 3: Create AKS
+# ============================================================
+az aks create \
+  --resource-group TestMskRsGrp \
+  --name TestMskAKS \
+  --location southindia \
+  --node-count 1 \
+  --node-vm-size Standard_B2s \
+  --enable-managed-identity \
+  --generate-ssh-keys
+
+az aks show --name TestMskAKS --resource-group TestMskRsGrp --output table
+
+# ============================================================
+# Step 4: Attach ACR to AKS
+# ============================================================
+az aks update --resource-group TestMskRsGrp --name TestMskAKS --attach-acr testmskacr
+
+# ============================================================
+# Step 5: Connect to AKS
+# ============================================================
+az aks get-credentials --resource-group TestMskRsGrp --name TestMskAKS
+kubectl get nodes
+
+# ============================================================
+# Step 6: Create Event Hub Namespace (Kafka enabled)
+# ============================================================
+az eventhubs namespace create \
+  --name TestMskEvHbNs \
+  --resource-group TestMskRsGrp \
+  --location southindia \
+  --sku Standard \
+  --enable-kafka true
+
+az eventhubs namespace show --name TestMskEvHbNs --resource-group TestMskRsGrp --output table
+
+# ============================================================
+# Step 7: Create Event Hub
+# ============================================================
+az eventhubs eventhub create \
+  --name TestMskEvHb \
+  --resource-group TestMskRsGrp \
+  --namespace-name TestMskEvHbNs \
+  --partition-count 2
+
+az eventhubs eventhub show --name TestMskEvHb --resource-group TestMskRsGrp --namespace-name TestMskEvHbNs --output table
+
+# ============================================================
+# Step 8: Create Authorization Rule
+# ============================================================
+az eventhubs namespace authorization-rule create \
+  --resource-group TestMskRsGrp \
+  --namespace-name TestMskEvHbNs \
+  --name "SendListenPolicy" \
+  --rights Send Listen Manage
+
+echo "============================================================"
+echo "Resource creation Completed Successfully at $(date)"
+echo "Logs saved to $LOGFILE"
+echo "============================================================"
