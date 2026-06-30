@@ -4,26 +4,25 @@
 # For more information, please see https://aka.ms/containercompat
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-1809 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
 # This stage is used to build the service project
-FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["AzEvHbShippingService/AzEvHbShippingService.csproj", "AzEvHbShippingService/"]
-RUN dotnet restore "./AzEvHbShippingService/AzEvHbShippingService.csproj"
+COPY ["AzEvHbShippingService.csproj", "."]
+RUN dotnet restore "AzEvHbShippingService.csproj"
 COPY . .
-WORKDIR "/src/AzEvHbShippingService"
-RUN dotnet build "./AzEvHbShippingService.csproj" -c %BUILD_CONFIGURATION% -o /app/build
+WORKDIR "/src"
+RUN dotnet build "AzEvHbShippingService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./AzEvHbShippingService.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "AzEvHbShippingService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
