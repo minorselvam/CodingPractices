@@ -1,0 +1,12 @@
+<!-- products/filter/product-filter/product-filter.component.html -->
+<div>
+  <label>Product:</label>
+  <select [(ngModel)]="selectedType" (change)="onSelectionChange()">
+    <option *ngFor="let t of productTypes" [value]="t">{{ t }}</option>
+  </select>
+
+  <label>Brand:</label>
+  <select [(ngModel)]="selectedBrand" (change)="onSelectionChange()">
+    <option *ngFor="let b of brands" [value]="b">{{ b }}</option>
+  </select>
+</div>

@@ -1,0 +1,9 @@
+<!-- products/list/product-list/product-list.component.html -->
+<div class="grid">
+  <div class="box" *ngFor="let product of products">
+    <h3>{{ product.productName }}</h3>
+    <p>{{ product.brand }}</p>
+    <p>₹{{ product.price }}</p>
+  </div>
+</div>
+

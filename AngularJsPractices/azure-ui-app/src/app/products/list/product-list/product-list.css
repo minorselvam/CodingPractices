@@ -1,0 +1,12 @@
+/* products/list/product-list/product-list.component.css */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  width: 30%;
+  margin: 1%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
