@@ -7,6 +7,9 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; 
 // React Router components: Router, Routes, Route
 
+import Dashboard from './components/Dashboard/Dashboard';
+// Import Dashboard component
+
 import Order from './components/Order/Order'; 
 // Import Order component
 
@@ -21,8 +24,11 @@ function App() {
     <Router>
       {/* Router provides navigation context */}
       <Routes>
+        {/* Default route loads Dashboard */}
+        <Route path="/" element={<Dashboard/>}/>
+
         {/* Routes container holds all route definitions */}
-        <Route path="/" element={<Order />} />
+        <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/shipping" element={<Shipping />} />
       </Routes>
