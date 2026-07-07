@@ -36,5 +36,10 @@ namespace FlexPointRetailApp.OrderService.Services
             }
             return order;
         }
+
+        public async Task<IEnumerable<Order>> GetAllOrdersAsync()
+        {
+            return await _orderRepository.GetAllOrders();
+        }
     }
 }

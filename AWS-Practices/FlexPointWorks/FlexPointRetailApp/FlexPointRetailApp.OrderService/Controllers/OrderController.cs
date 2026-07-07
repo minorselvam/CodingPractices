@@ -30,6 +30,12 @@ namespace FlexPointRetailApp.OrderService.Controllers
             return Ok(order);
         }
 
+        [HttpGet("all")]
+        public async Task<IEnumerable<Order>> GetAllOrders()
+        {
+            return await _orderService.GetAllOrdersAsync();
+        }
+
         [HttpGet("test-exception")]
         public IActionResult TestException()
         {

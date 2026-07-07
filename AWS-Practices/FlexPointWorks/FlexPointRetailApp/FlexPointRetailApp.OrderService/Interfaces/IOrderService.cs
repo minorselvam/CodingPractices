@@ -5,5 +5,6 @@ namespace FlexPointRetailApp.OrderService.Interfaces
     {
         Task<Order> CreateOrderAsync(OrderDto order);
         Task<Order?> GetOrderByIdAsync(int orderId);
+        Task<IEnumerable<Order>> GetAllOrdersAsync();
     }
 }

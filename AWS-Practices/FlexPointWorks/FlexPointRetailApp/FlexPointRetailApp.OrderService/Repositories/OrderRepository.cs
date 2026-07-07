@@ -24,5 +24,10 @@ namespace FlexPointRetailApp.OrderService.Repositories
         {
            return await _dbContext.Orders.FindAsync(orderId);
         }
+
+        public async Task<IEnumerable<Order>> GetAllOrders()
+        {
+            return await _dbContext.Orders.ToListAsync();
+        }
     }
 }
