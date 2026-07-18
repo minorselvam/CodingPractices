@@ -1,0 +1,6 @@
+@SingletonDotNetCore_HostAddress = http://localhost:5067
+
+GET {{SingletonDotNetCore_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
