@@ -19,6 +19,8 @@ import Payment from './components/Payment/Payment';
 import Shipping from './components/Shipping/Shipping'; 
 // Import Shipping component
 
+import Customer from './components/Customer/Customer';
+
 function App() {
   return (
     <Router>
@@ -31,6 +33,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/shipping" element={<Shipping />} />
+        <Route path="/customer" element={<Customer/>}/>
       </Routes>
     </Router>
   );

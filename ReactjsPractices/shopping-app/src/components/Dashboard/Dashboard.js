@@ -35,6 +35,9 @@ function Dashboard() {
             <Link to="/order">
                 <button style={{ marginBottom: "20px" }}>Place a new order</button>
             </Link>
+            <Link to="customer">
+                <button>Create New User</button>
+            </Link>
 
             {/* Conditional rendering → shows different UI based on state */}
             {
