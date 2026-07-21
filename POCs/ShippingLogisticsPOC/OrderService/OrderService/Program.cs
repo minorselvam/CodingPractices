@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using OrderService.Application.Commands;
 using OrderService.Application.Queries;
 using OrderService.Infrastructure.Data;
 using OrderService.Infrastructure.Repositories;
@@ -24,9 +25,15 @@ namespace OrderService
             // ✅ EF Core for Commands (writes)
             builder.Services.AddDbContext<OrderContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // ✅ Register EF Core command repository (writes)
+            builder.Services.AddScoped<IOrderCommandRepository, OrderCommandRepositoryEF>();
+
             // ✅ Dapper for Queries (reads)
             builder.Services.AddScoped<IDbConnection>(sp =>
                 new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IOrderQueryRepository, OrderQueryRepositoryDapper>();
+
+            // ✅ Register Dapper query repository (reads)
             builder.Services.AddScoped<IOrderQueryRepository, OrderQueryRepositoryDapper>();
 
             var app = builder.Build();

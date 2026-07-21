@@ -10,6 +10,13 @@ namespace OrderService.Infrastructure.Repositories
     public class OrderQueryRepositoryDapper : IOrderQueryRepository
     {
         private readonly IDbConnection _connection;
+
+        // ✅ Constructor injection: DI will provide SqlConnection here
+        public OrderQueryRepositoryDapper(IDbConnection connection)
+        {
+            _connection = connection;
+        }
+
         public async Task<IEnumerable<Order>> GetAllOrderAsync()
         {
             var sql = "SELECT * FROM Orders";
