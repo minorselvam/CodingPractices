@@ -1,6 +1,6 @@
 ﻿using OrderService.Domain.Entities;
 
-namespace OrderService.Application.Commands
+namespace OrderService.Application.Orders.Commands
 {
     // ✅ Command side: write operations - Using EF Core
     public interface IOrderCommandRepository

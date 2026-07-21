@@ -1,6 +1,6 @@
 ﻿using OrderService.Domain.Entities;
 
-namespace OrderService.Application.Queries
+namespace OrderService.Application.Orders.Queries
 {
     // ✅ Query side: read operations - CQRS Pattern
     public interface IOrderQueryRepository

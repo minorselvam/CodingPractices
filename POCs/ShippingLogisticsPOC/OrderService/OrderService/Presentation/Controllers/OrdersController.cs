@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OrderService.Application.Commands;
-using OrderService.Application.Queries;
+using OrderService.Application.Orders.Commands;
+using OrderService.Application.Orders.Queries;
 using OrderService.Domain.Entities;
 using OrderService.Infrastructure.Data;
 
@@ -23,13 +23,13 @@ namespace OrderService.Presentation.Controllers
         }
 
         // ✅ Query side (Dapper)
-        [HttpGet]
+        [HttpGet("GetAllOrders")] //api/Orders/GetAllOrders
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
             return Ok(await _queryRepo.GetAllOrderAsync());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetOrder/{id}")] ///api/Orders/GetOrder/5
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
             var order = await _queryRepo.GetOrderByIdAsync(id);
@@ -38,7 +38,7 @@ namespace OrderService.Presentation.Controllers
         }
 
         // ✅ Command side (EF Core)
-        [HttpPost]
+        [HttpPost("CreateOrder")]  ///api/Orders/CreateOrder
         public async Task<ActionResult<Order>> CreateOrder(Order order)
         {
             if (!order.IsValid()) return BadRequest("Invalid order");
@@ -50,7 +50,7 @@ namespace OrderService.Presentation.Controllers
             return CreatedAtAction(nameof(GetOrder), new { id = created.OrderId }, created);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateOrder/{id}")] ///api/Orders/UpdateOrder/5
         public async Task<IActionResult> UpdateOrder(int id, Order order)
         {
             if (id != order.OrderId) return BadRequest();
@@ -58,7 +58,7 @@ namespace OrderService.Presentation.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteOrder/{id}")] ///api/Orders/DeleteOrder/5
         public async Task<IActionResult> DeleteOrder(int id)
         {
             var deleted = await _commandRepo.DeleteOrderAsync(id);

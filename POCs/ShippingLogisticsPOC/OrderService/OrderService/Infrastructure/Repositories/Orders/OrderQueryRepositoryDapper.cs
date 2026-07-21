@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using Dapper;
-using OrderService.Application.Queries;
+using OrderService.Application.Orders.Queries;
 using OrderService.Domain.Entities;
 
-namespace OrderService.Infrastructure.Repositories
+namespace OrderService.Infrastructure.Repositories.Orders
 {
     // ✅ Dapper implementation for queries (reads)
     // Benefits: faster reads, lightweight mapping, full SQL control

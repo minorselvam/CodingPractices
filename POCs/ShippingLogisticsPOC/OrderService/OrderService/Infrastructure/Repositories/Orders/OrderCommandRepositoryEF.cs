@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OrderService.Application.Commands;
+using OrderService.Application.Orders.Commands;
 using OrderService.Domain.Entities;
 using OrderService.Infrastructure.Data;
 
-namespace OrderService.Infrastructure.Repositories
+namespace OrderService.Infrastructure.Repositories.Orders
 {
     // ✅ EF Core implementation for commands (writes)
     // Benefits: change tracking, migrations, transactions
