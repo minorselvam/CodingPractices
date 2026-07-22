@@ -5,9 +5,12 @@ using OrderService.Application.Customers.Commands;
 using OrderService.Application.Customers.Queries;
 using OrderService.Application.Orders.Commands;
 using OrderService.Application.Orders.Queries;
+using OrderService.Application.Products.Commands;
+using OrderService.Application.Products.Queries;
 using OrderService.Infrastructure.Data;
 using OrderService.Infrastructure.Repositories.Customers;
 using OrderService.Infrastructure.Repositories.Orders;
+using OrderService.Infrastructure.Repositories.Products;
 using System.Data;
 
 namespace OrderService
@@ -42,6 +45,11 @@ namespace OrderService
             // ✅ Register Customer repositories
             builder.Services.AddScoped<ICustomerCommandRepository, CustomerCommandRepositoryEF>();
             builder.Services.AddScoped<ICustomerQueryRepository, CustomerQueryRepositoryDapper>();
+
+            // ✅ Register Products repositories
+            builder.Services.AddScoped<IProductCommandRepository, ProductCommandRepositoryEF>();
+            builder.Services.AddScoped<IProductQueryRepository, ProductQueryRepositoryDapper>();
+
 
             var app = builder.Build();
 
