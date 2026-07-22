@@ -32,11 +32,14 @@ function Dashboard() {
     return (
         <div style={{ padding: "20px" }}>
             {/* Link → navigates to /order route */}
-            <Link to="/order">
+            <Link to="order">
                 <button style={{ marginBottom: "20px" }}>Place a new order</button>
             </Link>
             <Link to="customer">
                 <button>Create New User</button>
+            </Link>
+            <Link to="productsearch">
+                <button>Products</button>
             </Link>
 
             {/* Conditional rendering → shows different UI based on state */}

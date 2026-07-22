@@ -20,6 +20,7 @@ import Shipping from './components/Shipping/Shipping';
 // Import Shipping component
 
 import Customer from './components/Customer/Customer';
+import ProductSearch from './components/Products/ProductSearch';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/customer" element={<Customer/>}/>
+        <Route path="/productsearch" element={<ProductSearch/>}/>
       </Routes>
     </Router>
   );

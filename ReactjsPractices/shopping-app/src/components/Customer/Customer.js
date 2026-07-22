@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function Customer() {
+    const API_URL = process.env.REACT_APP_API_URL;
 const {register, handleSubmit, formState: { errors }} = useForm();
 const onSubmit = async (data) => {
     try {
-        const response = await axios.post("/api/Customers/CreateCustomer", data);
+        const response = await axios.post(`/api/Customers/CreateCustomer`, data);
         alert("Customer Created! Name: " + response.data.customerId)
     } 
     catch (err) {
