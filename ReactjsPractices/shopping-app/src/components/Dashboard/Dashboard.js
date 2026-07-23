@@ -1,80 +1,39 @@
-import React, { useEffect, useState } from "react"; 
-// React core library
-// useState → manages local state (orders, loading)
-// useEffect → performs side effects (API calls after render)
-
-import { Link } from "react-router-dom"; 
-// React Router → Link component for navigation
-
-import axios from "axios"; 
-// Axios → HTTP client for making API requests
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Dashboard() {
-    const [orders, setOrders] = useState([]); 
-    // useState → initializes 'orders' as empty array, updates with API response
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const [loading, setLoading] = useState(true); 
-    // useState → tracks loading state (true until API finishes)
+  useEffect(() => {
+    axios.get("/api/Products/GetAllProducts")
+      .then((response) => setProducts(response.data))
+      .catch(error => console.error("Error fetching products", error))
+      .finally(() => setLoading(false));
+  }, []);
 
-    // useEffect → runs after component mounts (first render)
-    useEffect(() => {
-        axios.get("/api/v1/orders/all") 
-        // Axios GET request → fetches orders from backend API
-        .then((response) => setOrders(response.data)) 
-        // .then → updates 'orders' state with API response
-        .catch(error => console.error("Error in fetching orders")) 
-        // .catch → handles errors gracefully
-        .finally(() => setLoading(false)); 
-        // .finally → stops loading spinner regardless of success/failure
-    }, []); 
-    // [] dependency array → ensures effect runs only once (on mount)
-
-    return (
-        <div style={{ padding: "20px" }}>
-            {/* Link → navigates to /order route */}
-            <Link to="order">
-                <button style={{ marginBottom: "20px" }}>Place a new order</button>
-            </Link>
-            <Link to="customer">
-                <button>Create New User</button>
-            </Link>
-            <Link to="productsearch">
-                <button>Products</button>
-            </Link>
-
-            {/* Conditional rendering → shows different UI based on state */}
-            {
-                loading ? (
-                    <p>Loading orders....</p> 
-                    // If loading → show loading message
-                ) : orders.length === 0 ? (
-                    <p>No orders found. Please place a new order.</p> 
-                    // If no orders → show empty state message
-                ) : (
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Customer Name</th>
-                                <th>Order Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {orders.map(order => (
-                                <tr key={order.id}>
-                                    <td>{order.customerName}</td>
-                                    {/* .map → iterates orders array, renders rows dynamically */}
-                                    <td>{order.amount}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )
-            }
+  return (
+    <div style={{ height: "100%", overflowY: "auto" }}>
+      {loading ? (
+        <p>Loading products...</p>
+      ) : products.length === 0 ? (
+        <p>No products found.</p>
+      ) : (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+          {products.map((p) => (
+            <div key={p.productId} style={{ border: "1px solid #ccc", padding: "15px", borderRadius: "8px", textAlign: "center" }}>
+              <h3>{p.productName}</h3>
+              <p>Brand: {p.brand}</p>
+              <p>Price: ₹{p.price}</p>
+            </div>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 }
+export default Dashboard;
 
-export default Dashboard; 
 // Export default → makes Dashboard reusable in App.js
 
 /* 
