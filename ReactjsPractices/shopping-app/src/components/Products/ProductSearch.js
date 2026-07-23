@@ -1,18 +1,26 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { searchProducts } from "../../store/productsSlice";
 
+/**
+ * ProductSearch → search bar component.
+ * useDispatch() gives us the store’s dispatch function.
+ * We store it in const dispatch so we can call it easily.
+ * dispatch() can only send Redux actions (like searchProducts),
+ * not arbitrary functions.
+ */
 function ProductSearch() {
-  const API_URL = process.env.REACT_APP_API_URL;
   const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch(); // hook → gives dispatch function
 
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get(`/api/Products/SearchProducts?name=${searchTerm}`);
-      console.log("Search Results:", response.data);
-      // Next step: dispatch to Redux so Dashboard updates
-    } catch (error) {
-      console.error("Error fetching products.", error);
-    }
+  const handleSearch = () => {
+    /**
+     * Dispatch means "send this action to the Redux store".
+     * Even though searchProducts() is defined in productsSlice.js,
+     * we imported it here. Dispatch runs the thunk, which calls the API,
+     * then updates Redux state. Dashboard re-renders automatically.
+     */
+    dispatch(searchProducts(searchTerm));
   };
 
   return (

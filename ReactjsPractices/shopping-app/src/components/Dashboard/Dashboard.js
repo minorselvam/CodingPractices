@@ -1,27 +1,49 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAllProducts } from "../../store/productsSlice";
+
+/**
+ * Dashboard → default landing screen.
+ * On load → dispatch fetchAllProducts to show all products.
+ * When search is triggered → Redux updates items, Dashboard re-renders automatically.
+ */
 
 function Dashboard() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  // useSelector → read products state from Redux store
+  const { items: products, loading, error } = useSelector((state) => state.products);
 
   useEffect(() => {
-    axios.get("/api/Products/GetAllProducts")
-      .then((response) => setProducts(response.data))
-      .catch(error => console.error("Error fetching products", error))
-      .finally(() => setLoading(false));
-  }, []);
+    /**
+     * On first load, fetch all products.
+     * Dependency array [dispatch] → ensures effect runs once.
+     * Why include dispatch? React’s ESLint rules require it,
+     * even though dispatch never changes. It’s just a safe practice.
+     */
+    dispatch(fetchAllProducts());
+  }, [dispatch]);
 
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+
+  
   return (
     <div style={{ height: "100%", overflowY: "auto" }}>
-      {loading ? (
-        <p>Loading products...</p>
-      ) : products.length === 0 ? (
+      {products.length === 0 ? (
         <p>No products found.</p>
       ) : (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
           {products.map((p) => (
-            <div key={p.productId} style={{ border: "1px solid #ccc", padding: "15px", borderRadius: "8px", textAlign: "center" }}>
+            <div
+              key={p.productId}
+              style={{
+                border: "1px solid #ccc",
+                padding: "15px",
+                borderRadius: "8px",
+                textAlign: "center"
+              }}
+            >
               <h3>{p.productName}</h3>
               <p>Brand: {p.brand}</p>
               <p>Price: ₹{p.price}</p>
@@ -31,6 +53,7 @@ function Dashboard() {
       )}
     </div>
   );
+  
 }
 export default Dashboard;
 

@@ -2,6 +2,10 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Redux Provider + store
+import { Provider } from "react-redux";
+import store from "./store/store";
+
 import Dashboard from './components/Dashboard/Dashboard';
 import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
@@ -12,47 +16,51 @@ import Cart from './components/Cart/Cart';
 
 function App() {
   return (
-    <Router>
-      <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-        {/* Top section: 15% height */}
-        <div
-          style={{
-            height: "15%",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "20px",
-            borderBottom: "2px solid #ccc"
-          }}
-        >
-          {/* Search bar (left side) */}
-          <div style={{ flex: 1 }}>
-            <ProductSearch />
+    // ✅ Provider makes Redux store available to all components
+    <Provider store={store}>
+      <Router>
+        <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+          {/* Top section: 15% height */}
+          <div
+            style={{
+              height: "15%",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "20px",
+              borderBottom: "2px solid #ccc"
+            }}
+          >
+            {/* Search bar (left side) */}
+            <div style={{ flex: 1 }}>
+              <ProductSearch />
+            </div>
+
+            {/* Cart + Create User (top right) */}
+            <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
+              <Cart />
+              <a href="/customer">
+                <button>Create New User</button>
+              </a>
+            </div>
           </div>
 
-          {/* Cart + Create User (top right) */}
-          <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
-            <Cart />
-            <a href="/customer">
-              <button>Create New User</button>
-            </a>
+          {/* Bottom section: 85% height */}
+          <div style={{ height: "85%", overflowY: "auto", padding: "20px" }}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/order" element={<Order />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/shipping" element={<Shipping />} />
+              <Route path="/customer" element={<Customer />} />
+            </Routes>
           </div>
         </div>
-
-        {/* Bottom section: 85% height */}
-        <div style={{ height: "85%", overflowY: "auto", padding: "20px" }}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/order" element={<Order />} />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/shipping" element={<Shipping />} />
-            <Route path="/customer" element={<Customer />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
+
 export default App;
 
 /*
