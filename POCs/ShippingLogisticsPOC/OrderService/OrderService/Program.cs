@@ -50,6 +50,20 @@ namespace OrderService
             builder.Services.AddScoped<IProductCommandRepository, ProductCommandRepositoryEF>();
             builder.Services.AddScoped<IProductQueryRepository, ProductQueryRepositoryDapper>();
 
+            // Configure CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend",
+                    policy =>
+                    {
+                        policy.WithOrigins(
+                            "http://localhost:4200",                // ✅ Angular dev server
+                            "https://your-frontend.azurewebsites.net" // ✅ Angular app in Azure
+                        )
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
 
             var app = builder.Build();
 
@@ -61,9 +75,10 @@ namespace OrderService
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
 
+            // Enable CORS
+            app.UseCors("AllowFrontend");
 
             app.MapControllers();
 
