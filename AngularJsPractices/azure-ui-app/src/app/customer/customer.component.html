@@ -1,0 +1,78 @@
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()" style="padding:20px">
+  <h2>Create Customer</h2>
+
+  <!-- Name -->
+  <label>
+    Name:
+    <input formControlName="name" placeholder="Name" />
+  </label>
+  <p style="color:red" *ngIf="customerForm.get('name')?.errors?.['required']">
+    Name is required
+  </p>
+
+  <!-- Email -->
+  <label>
+    Email:
+    <input formControlName="email" placeholder="Email" />
+  </label>
+  <p style="color:red" *ngIf="customerForm.get('email')?.errors?.['required']">
+    Email is required
+  </p>
+  <p style="color:red" *ngIf="customerForm.get('email')?.errors?.['email']">
+    Invalid email format
+  </p>
+
+  <!-- State -->
+  <label>
+    State:
+    <input formControlName="state" placeholder="State" />
+  </label>
+  <p style="color:red" *ngIf="customerForm.get('state')?.errors?.['required']">
+    State is required
+  </p>
+
+  <!-- Country -->
+  <label>
+    Country:
+    <input formControlName="country" placeholder="Country" />
+  </label>
+  <p style="color:red" *ngIf="customerForm.get('country')?.errors?.['required']">
+    Country is required
+  </p>
+
+  <!-- Zip Code -->
+  <label>
+    Zip Code:
+    <input formControlName="zipCode" placeholder="Zip Code" />
+  </label>
+  <p style="color:red" *ngIf="customerForm.get('zipCode')?.errors?.['required']">
+    ZipCode is required
+  </p>
+  <p style="color:red" *ngIf="customerForm.get('zipCode')?.errors?.['minlength']">
+    ZipCode must be at least 5 digits
+  </p>
+  <p style="color:red" *ngIf="customerForm.get('zipCode')?.errors?.['maxlength']">
+    ZipCode must be at most 6 digits
+  </p>
+  <p style="color:red" *ngIf="customerForm.get('zipCode')?.errors?.['pattern']">
+    ZipCode must be numeric
+  </p>
+
+  <!-- Phone -->
+  <label>
+    Phone:
+    <input formControlName="phone" placeholder="Phone" />
+  </label>
+  <p style="color:red" *ngIf="customerForm.get('phone')?.errors?.['required']">
+    Phone is required
+  </p>
+  <p style="color:red" *ngIf="customerForm.get('phone')?.errors?.['maxlength']">
+    Phone must be ≤ 12 digits
+  </p>
+  <p style="color:red" *ngIf="customerForm.get('phone')?.errors?.['pattern']">
+    Phone must be numeric
+  </p>
+
+  <button type="submit">Save</button>
+</form>

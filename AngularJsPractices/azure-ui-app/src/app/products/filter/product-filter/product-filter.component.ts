@@ -1,13 +1,16 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ProductService, Product } from '../../services/product-service';
-import { FormsModule } from '@angular/forms';   // ✅ import FormsModule
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../services/product.service';
+
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-filter',
   standalone: true,
-  imports: [CommonModule, FormsModule],   // ✅ add FormsModule here
-  templateUrl: './product-filter.html'
+  imports: [CommonModule, FormsModule],
+  templateUrl: './product-filter.component.html',
+  styleUrls: ['./product-filter.component.css']
 })
 export class ProductFilterComponent implements OnInit {
   products: Product[] = [];

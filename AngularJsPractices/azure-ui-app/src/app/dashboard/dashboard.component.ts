@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { ProductService, Product } from '../products/services/product-service';
 import { CommonModule } from '@angular/common';
-import { ProductFilterComponent } from '../products/filter/product-filter/product-filter';
-import { ProductListComponent } from '../products/list/product-list/product-list';
+import { ProductService } from '../products/services/product.service';   // ✅ only the service
+import { Product } from '../products/services/product.service';          // ✅ interface separately
+import { ProductFilterComponent } from '../products/filter/product-filter/product-filter.component';
+import { ProductListComponent } from '../products/list/product-list/product-list.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule, ProductFilterComponent, ProductListComponent],
-  templateUrl: 'dashboard.html'
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
   allProducts: Product[] = [];
@@ -19,7 +21,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.productService.getProducts().subscribe(data => {
       this.allProducts = data;
-      this.filteredProducts = data; // default show all
+      this.filteredProducts = data;
     });
   }
 
