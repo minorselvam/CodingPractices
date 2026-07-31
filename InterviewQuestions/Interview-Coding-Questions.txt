@@ -1,0 +1,185 @@
+.Result() - race conditions
+
+----------------------------------------------------------------------------------------------
+.ConfigureAwait(false/true);
+----------------------------------------------------------------------------------------------
+
+catch(Exception ex)
+{
+     throw;
+}
+ 
+-----------------------------------
+ 
+catch(Exception ex)
+{
+     throw ex;
+}
+----------------------------------------------------------------------------------------------
+  
+builder.Services.AddSingleton<IConfig, Config>();
+builder.Services.AddScopped<IUser, User>();
+ 
+ 
+public class Config : IConfig
+{
+    private readonly IUser _user;
+    public Config(IUser user)
+    {
+        _user = user;
+    }
+}
+----------------------------------------------------------------------------------------------
+
+deferred execution - linq
+
+**********************************************************************************************************************************************************************************************************************************************************************************************************
+
+Tenarai
+----------------
+
+
+Write a .NET Core Web API endpoint that receives a file upload (e.g., image or document), saves it securely to Azure Blob Storage, and returns the file's public URL. Use dependency injection for the storage service, handle large files efficiently, and ensure validation of allowed file types.
+=================================================================================================================================================
+
+//Controller
+FileUploadController
+{
+	private readonly FileUploadService _fileUploadService
+	
+	//Service injection
+	FileUploadController(FileUploadService fileUploadService)
+	{
+		_fileUploadService = fileUploadService
+	}
+	
+	[HttpPost("/Upload")]
+	public IActionResult Upload(File _recivedFile)
+	{
+		try
+		{
+			if(fileUploadService.ValidateFileTypes())
+			{
+				var result = await fileUploadService.FileUpload(_recivedFile);
+				return result;
+			}
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+		return UnsupportedFile Response;
+	}
+}
+--------------------------------------------------------------------------------------
+
+//Service Layer
+Public class FileUploadService() : IFileUpload
+{
+	public bool ValidateFileTypes(File _recivedFile)
+	{
+		//Check the file types
+		If(TypeOf(_recivedFile) === "png" || "doc")
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public async HttpResponseMessge FileUpload(File _recivedFile)
+	{
+		try
+		{
+			HttpResponseMessge finalResult;
+			//Make the recived file as chunks		
+			FileChunksCollection = _recivedFile.ToChunks();
+			
+			//Iterate each file chunk and upload the file to Azure Blob Storage Container
+			Parellel.ForEach(FileChunksCollection fileChunk)
+			{
+				fileChunk.ToUpload("Blob Storage Container URL");
+			}
+			
+			var finalResult = BlobContainer.Result();
+			return finalResult;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+		return finalResult;
+	}
+}
+
+//Interfaces
+Interface IFileUpload
+{
+	bool ValidateFileTypes(File _recivedFile);
+	Async HttpResponseMessge FileUpload();
+}
+=====================================================================================================================================================
+
+Create an Angular component that fetches a list of users from a REST API and displays them in a table. Include error handling and a loading indicator in your solution.
+----------------------------------------------------------------------------------------------------------------------------------
+
+//User model
+interface user {
+	Id:Number;
+	Name: String;
+	Email:String;
+}
+
+//user.service.ts
+import {HttpClient} from '@angular'	
+
+export calss UserService
+{
+	 private apiUrl = 'https:/abc.com/users'; 
+	  
+	contructor(private http: httpClient)
+	
+	getUsers():Observable<User[]> {
+		return this.http.get<User[]>(this.apiUrl);
+	}
+}
+
+//Component
+export class UserComponent
+{
+	users: User[] = [];
+	loading = false;
+  error: string | null = null;
+  
+	  constructor(private userService: UserService) {}
+	  
+	  ngOnInt()
+	  {
+			this.loading = true;
+			this.error = null;
+			this.userService.getUsers().subscribe({
+				        this.users = data;
+			},
+			error:(err) {
+				this.error = 'Failed to load users. Please try again later.';
+				this.loading = false;
+				console.error(err);
+			  }
+			 
+	  }
+}
+
+
+
+html
+---------
+<div>
+		{ngIf loading } Loading.....
+		{ngIf error } Error
+		
+		
+		<div {ngFor let user in users}>
+			<div> {user.Name} </div>
+			<div> {user.Email} </div>			
+		</div>
+</div>
+=====================================================================================================================================================
