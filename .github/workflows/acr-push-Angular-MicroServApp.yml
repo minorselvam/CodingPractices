@@ -1,0 +1,22 @@
+name: Build and Push to ACR for Angular App with .Net Core MicroService app Hosting in Azure with API Gateway.
+#
+on:
+  push:
+    branches:
+      - main
+#
+jobs:
+  orderservice:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+    - uses: actions/checkout@v3
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - run: az acr login --name ${{ secrets.ACR_NAME }}
+    - run: |
+        cd POCs/ShippingLogisticsPOC/OrderService/OrderService
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1 .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/orderservice:v1
+
