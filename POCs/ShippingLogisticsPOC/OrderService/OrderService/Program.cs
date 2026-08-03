@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using OrderService.Application.Customers.Commands;
 using OrderService.Application.Customers.Queries;
 using OrderService.Application.Orders.Commands;
@@ -65,7 +66,15 @@ namespace OrderService
                     });
             });
 
+            // Register health checks
+            builder.Services.AddHealthChecks()
+                .AddCheck("self", () => HealthCheckResult.Healthy());
+
             var app = builder.Build();
+
+            // Map health check endpoints
+            app.MapHealthChecks("/health/live");
+            app.MapHealthChecks("/health/ready");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
