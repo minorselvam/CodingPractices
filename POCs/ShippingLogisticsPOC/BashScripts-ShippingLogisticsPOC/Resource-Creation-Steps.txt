@@ -1,0 +1,131 @@
+Create Azure Resources
+	1. Create Resource Group
+		Go to Azure Portal → Resource Groups → Create.
+
+		Enter:
+
+		Name: TestMskRsGrp
+
+		Region: South India (same as your AKS/ACR for locality).
+
+		Click Review + Create → Create.
+		✅ This will be the container for all your resources.
+------------------------------------------------------------------------------------------------------------------------------
+	2. Create Azure Container Registry (ACR)
+		Go to Container Registries → Create.
+
+		Enter:
+
+		Registry name: TestMskACR
+
+		Resource group: TestMskRsGrp
+
+		Location: South India
+
+		SKU: Basic (sufficient for POC).
+
+		Disable Admin user (recommended).
+
+		Click Review + Create → Create.
+		✅ This is where you’ll push your Docker images (orderservice:v1).
+------------------------------------------------------------------------------------------------------------------------------
+	3. Create Azure Kubernetes Service (AKS) Cluster
+		Go to Kubernetes Services → Create → Add Kubernetes cluster.
+
+		Basics:
+
+		Cluster name: TestMskAKS
+
+		Resource group: TestMskRsGrp
+
+		Region: South India
+
+		Node pool:
+
+		Name: agentpool
+
+		VM size: Standard_B2s (small, cost‑effective for POC).
+
+		Node count: 1
+
+		Enable autoscaling: Yes (min 1, max 2).
+
+		Authentication:
+
+		Enable RBAC.
+
+		Networking:
+
+		Network plugin: Azure CNI
+
+		Load balancer SKU: Standard.
+
+		Click Review + Create → Create.
+		✅ This cluster will run your microservices.
+------------------------------------------------------------------------------------------------------------------------------
+
+	4. Optionally create API Management for gateway routing
+===========================================================================================================================================
+
+Create Azure SQL Database
+	In the Azure Portal, search for SQL databases → Create.
+
+	Fill in:
+
+	Database name: LogisticsPOC
+
+	Server: Select logisticspoc-sqlsrv you just created.
+
+	Compute + Storage:
+
+	For POC: Basic or General Purpose tier.
+
+	You can scale later if needed.
+
+	Click Review + Create → Create.
+	✅ This creates your managed database.
+===========================================================================================================================================
+
+Configure Networking
+	Go to your SQL Server (logisticspoc-sqlsrv) → Networking.
+
+	Enable Allow Azure services and resources to access this server.
+
+	Optionally configure a Private Endpoint for secure AKS connectivity.
+	✅ This ensures AKS pods can connect to the database.
+
+===========================================================================================================================================
+
+Build and Push .NET Core Image
+	Compile your microservice into a Docker image and push to ACR.
+
+	Update Dockerfile to use Linux base images
+
+	Run docker build -t testmskacr.azurecr.io/orderservice:v1 .
+
+	Run docker push testmskacr.azurecr.io/orderservice:v1
+
+	Ensure GitHub Actions workflow uses updated secrets for ACR
+===========================================================================================================================================
+Deploy Image to AKS
+	Cluster Deployment
+	Run your containerized microservice in Kubernetes.
+
+	Authenticate: az aks get-credentials --resource-group TestMskRsGrp --name TestMskAKS
+
+	Apply deployment YAML (kubectl apply -f orderapi-deployment.yaml)
+
+	Expose service with LoadBalancer (kubectl expose deployment orderapi-deployment --type=LoadBalancer --port=8080)
+===========================================================================================================================================
+
+Verify and Test in Browser
+	Confirm the service is running and accessible.
+
+	Run kubectl get pods → ensure READY 1/1
+
+	Run kubectl get services → note EXTERNAL-IP
+
+	Test endpoint: http://<EXTERNAL-IP>:8080/api/Customers/GetAllCustomers
+
+	Open the same URL in Chrome to see JSON response
+===========================================================================================================================================
