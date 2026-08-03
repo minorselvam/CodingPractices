@@ -1,0 +1,55 @@
+To deploy your Angular UI app (v20.1.0) to Azure, the most cost‑effective option is Azure Static Web Apps. Here’s the exact step‑by‑step process you can follow in the Azure Portal:
+
+01
+	Build Angular App
+	You need to generate production‑ready static files.
+
+	Run in terminal: ng build --configuration production
+
+	Navigate to your Angular project folder
+
+	Run ng build --configuration production
+
+	Output will be in dist/<app-name>
+
+02
+Create Static Web App
+Provision the hosting service in Azure.
+
+Azure Portal → Static Web Apps → Create
+
+Resource group: TestMskRsGrp
+
+Name: TestMskAngularUI
+
+Region: South India
+
+Plan: Free (for POC)
+
+03
+Configure Build Settings
+Tell Azure where your Angular build files are.
+
+App location: /
+
+Output location: dist/<app-name>
+
+Leave API location empty (not needed for UI only)
+
+04
+Deploy Code
+Push your Angular code to GitHub or upload manually.
+
+If using GitHub: connect repo → branch → CI/CD pipeline auto‑created
+
+If manual: drag‑and‑drop build files into portal
+
+05
+Verify Deployment
+Confirm your Angular app is live.
+
+Azure will give you a URL like https://testmskangularui.azurestaticapps.net
+
+Open the link in browser
+
+Check routing and assets load correctly
