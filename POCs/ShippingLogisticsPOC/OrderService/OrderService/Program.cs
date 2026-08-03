@@ -29,10 +29,10 @@ namespace OrderService
             builder.Services.AddSwaggerGen();
 
             // ✅ EF Core for Commands (writes)
-            builder.Services.AddDbContext<OrderContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDbContext<OrderContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LogisticsPOC")));
             // ✅ Dapper for Queries (reads)
             builder.Services.AddScoped<IDbConnection>(sp =>
-                new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+                new SqlConnection(builder.Configuration.GetConnectionString("LogisticsPOC")));
             builder.Services.AddScoped<IOrderQueryRepository, OrderQueryRepositoryDapper>();
 
             // ✅ Register EF Core command repository (writes)
