@@ -13,28 +13,28 @@ To deploy your Angular UI app (v20.1.0) to Azure, the most cost‑effective opti
 	Output will be in dist/<app-name>
 
 02
-Create Static Web App
-Provision the hosting service in Azure.
+	Create Static Web App
+	Provision the hosting service in Azure.
 
-Azure Portal → Static Web Apps → Create
+	Azure Portal → Static Web Apps → Create
 
-Resource group: TestMskRsGrp
+	Resource group: TestMskRsGrp
 
-Name: TestMskAngularUI
+	Name: TestMskAngularUI
 
-Region: South India
+	Region: South India
 
-Plan: Free (for POC)
+	Plan: Free (for POC)
 
 03
-Configure Build Settings
-Tell Azure where your Angular build files are.
+	Configure Build Settings
+	Tell Azure where your Angular build files are.
 
-App location: /
+	App location: /
 
-Output location: dist/<app-name>
+	Output location: dist/<app-name>
 
-Leave API location empty (not needed for UI only)
+	Leave API location empty (not needed for UI only)
 
 04
 Deploy Code
